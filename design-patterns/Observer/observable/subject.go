@@ -1,4 +1,4 @@
-package subject
+package observable
 
 import (
 	"github.com/sillyhatxu/code-complete-go/design-patterns/Observer/observer"
