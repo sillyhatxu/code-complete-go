@@ -1,24 +1,30 @@
 package main
 
 import (
+	"fmt"
 	"github.com/sillyhatxu/code-complete-go/design-patterns/Observer/observer"
 	"github.com/sillyhatxu/code-complete-go/design-patterns/Observer/subject"
+	"sync"
 	"time"
 )
 
 func main() {
-	//initial object
-	trap := &observer.Observer{Name: "trap", ObserverChan: make(chan string)}
+	wg := &sync.WaitGroup{}
+	trap := &observer.Observer{Name: "trap", ObserverChan: make(chan string), WG: wg}
 	go trap.Observe()
-	monster := &observer.Observer{Name: "monster", ObserverChan: make(chan string)}
+	time.Sleep(20 * time.Microsecond)
+	monster := &observer.Observer{Name: "monster", ObserverChan: make(chan string), WG: wg}
 	go monster.Observe()
-	treasure := &observer.Observer{Name: "treasure", ObserverChan: make(chan string)}
+	time.Sleep(20 * time.Microsecond)
+	treasure := &observer.Observer{Name: "treasure", ObserverChan: make(chan string), WG: wg}
 	go treasure.Observe()
-	hero := &subject.DefineSubject{}
+	hero := &subject.DefineSubject{MU: &sync.Mutex{}}
 	hero.AttachObserver(trap.ObserverChan)
 	hero.AttachObserver(monster.ObserverChan)
 	hero.AttachObserver(treasure.ObserverChan)
-
+	wg.Add(hero.GetObserverLength())
 	hero.NotifyObservers("move")
-	time.Sleep(5 * time.Second)
+	fmt.Println("notify observers waiting")
+	wg.Wait()
+	fmt.Println("notify observers end")
 }

@@ -6,7 +6,7 @@ import (
 
 type DefineSubject struct {
 	observerArray []chan string
-	mu            *sync.Mutex
+	MU            *sync.Mutex
 }
 
 func (ds *DefineSubject) validate() bool {
@@ -16,11 +16,22 @@ func (ds *DefineSubject) validate() bool {
 	return true
 }
 
+func (ds *DefineSubject) GetObserverLength() int {
+	if !ds.validate() {
+		return 0
+	}
+	return len(ds.observerArray)
+}
+
 func (ds *DefineSubject) AttachObserver(observer chan string) {
+	ds.MU.Lock()
+	defer ds.MU.Unlock()
 	ds.observerArray = append(ds.observerArray, observer)
 }
 
 func (ds *DefineSubject) DetachObserver(observer chan string) {
+	ds.MU.Lock()
+	defer ds.MU.Unlock()
 	if !ds.validate() {
 		return
 	}
@@ -33,6 +44,8 @@ func (ds *DefineSubject) DetachObserver(observer chan string) {
 }
 
 func (ds *DefineSubject) NotifyObservers(name string) {
+	ds.MU.Lock()
+	defer ds.MU.Unlock()
 	if !ds.validate() {
 		return
 	}
