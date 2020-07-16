@@ -1,3 +1,4 @@
+https://github.com/svett/golang-design-patterns
 
 The 23 Gang of Four Design Patterns .. Revisited
 Comments (4) | Share
