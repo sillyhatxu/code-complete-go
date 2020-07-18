@@ -44,10 +44,12 @@ func main() {
 		fmt.Println(Single())
 		time.Sleep(500 * time.Millisecond)
 	}
+
 	for i := 0; i < number; i++ {
 		fmt.Println(PhotoNumber(9))
 		time.Sleep(3 * time.Second)
 	}
+
 	for i := 0; i < number; i++ {
 		fmt.Println(Money(6))
 		time.Sleep(3 * time.Second)
