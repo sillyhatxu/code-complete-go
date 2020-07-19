@@ -1,19 +1,21 @@
 package main
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
-//func TestString(t *testing.T) {
-//	fmt.Println('s')
-//	fmt.Println('a')
-//	fmt.Println(int('b'))
-//	fmt.Println(int('c'))
-//	fmt.Println(int('d'))
-//	fmt.Println(int('e'))
-//	fmt.Println(int('f'))
-//}
+func TestString(t *testing.T) {
+	fmt.Println('a')
+	fmt.Println('z')
+	fmt.Println(int('b'))
+	fmt.Println(int('c'))
+	fmt.Println(int('d'))
+	fmt.Println(int('e'))
+	fmt.Println(int('f'))
+}
+
 //
 //func TestIsUniqueChars(t *testing.T) {
 //	result := IsUniqueChars("abcdefghijklmnopqrstuvwxyzg")
@@ -44,6 +46,7 @@ import (
 //}
 
 func BenchmarkString(b *testing.B) {
+	fmt.Println(101 >> 3)
 	assert.Equal(b, int32(115), 's')
 	assert.Equal(b, int32(97), 'a')
 	assert.Equal(b, int32(98), 'b')

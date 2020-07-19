@@ -30,6 +30,7 @@ func IsUniqueChars2(input string) bool {
 	return true
 }
 
+//TODO 没看懂
 func IsUniqueChars3(input string) bool {
 	checker := 0
 	for i, c := range input {
