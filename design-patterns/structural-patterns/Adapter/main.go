@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/sillyhatxu/code-complete-go/design-patterns/Adapter/model"
+	"github.com/sillyhatxu/code-complete-go/design-patterns/structural-patterns/Adapter/model"
 )
 
 func main() {

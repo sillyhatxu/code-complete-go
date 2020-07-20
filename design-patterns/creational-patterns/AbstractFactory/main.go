@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/sillyhatxu/code-complete-go/design-patterns/AbstractFactory/build"
-	"github.com/sillyhatxu/code-complete-go/design-patterns/AbstractFactory/factory"
+	"github.com/sillyhatxu/code-complete-go/design-patterns/creational-patterns/AbstractFactory/build"
+	"github.com/sillyhatxu/code-complete-go/design-patterns/creational-patterns/AbstractFactory/factory"
 )
 
 func main() {

@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/sillyhatxu/code-complete-go/design-patterns/Observer/observer"
-	"github.com/sillyhatxu/code-complete-go/design-patterns/Observer/subject"
+	"github.com/sillyhatxu/code-complete-go/design-patterns/behavioral-patterns/Observer/observer"
+	"github.com/sillyhatxu/code-complete-go/design-patterns/behavioral-patterns/Observer/subject"
 	"sync"
 	"time"
 )

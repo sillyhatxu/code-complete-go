@@ -1,8 +1,8 @@
 package brand
 
 import (
-	"github.com/sillyhatxu/code-complete-go/design-patterns/AbstractFactory/brand/basic"
-	"github.com/sillyhatxu/code-complete-go/design-patterns/AbstractFactory/factory"
+	"github.com/sillyhatxu/code-complete-go/design-patterns/creational-patterns/AbstractFactory/brand/basic"
+	"github.com/sillyhatxu/code-complete-go/design-patterns/creational-patterns/AbstractFactory/factory"
 )
 
 type Nike struct {

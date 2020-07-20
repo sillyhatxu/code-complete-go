@@ -2,8 +2,8 @@ package build
 
 import (
 	"fmt"
-	"github.com/sillyhatxu/code-complete-go/design-patterns/AbstractFactory/brand"
-	"github.com/sillyhatxu/code-complete-go/design-patterns/AbstractFactory/factory"
+	"github.com/sillyhatxu/code-complete-go/design-patterns/creational-patterns/AbstractFactory/brand"
+	"github.com/sillyhatxu/code-complete-go/design-patterns/creational-patterns/AbstractFactory/factory"
 )
 
 const (
