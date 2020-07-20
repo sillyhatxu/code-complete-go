@@ -72,6 +72,5 @@ func (circle *Circle) Draw() error {
 			Height: 2 * circle.Radius,
 		},
 	}
-
 	return circle.DrawingContext.DrawEllipseInRect(rect)
 }
