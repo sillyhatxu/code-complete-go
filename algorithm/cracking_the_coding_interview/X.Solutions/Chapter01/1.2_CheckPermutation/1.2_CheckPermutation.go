@@ -1,4 +1,4 @@
-package main
+package x_solutions_chapter01_CheckPermutation
 
 func CheckPermutation(input1, input2 string) bool {
 	if len(input1) != len(input2) {

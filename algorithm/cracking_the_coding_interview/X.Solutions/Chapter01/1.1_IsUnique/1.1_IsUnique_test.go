@@ -1,4 +1,4 @@
-package main
+package x_solutions_chapter01_IsUnique
 
 import (
 	"fmt"

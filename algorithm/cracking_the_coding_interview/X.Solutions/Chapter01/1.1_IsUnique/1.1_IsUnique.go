@@ -1,4 +1,4 @@
-package main
+package x_solutions_chapter01_IsUnique
 
 func IsUniqueChars1(input string) bool {
 	if len(input) > 128 {
