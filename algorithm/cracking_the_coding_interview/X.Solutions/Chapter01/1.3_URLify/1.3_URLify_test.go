@@ -8,5 +8,5 @@ import (
 func TestURLify2(t *testing.T) {
 	input, trueLength := "Mr John Smith    ", 13
 	result := URLify([]byte(input), trueLength)
-	assert.Equal(t, "Mr John Smith", string(result))
+	assert.Equal(t, "Mr%20John%20Smith", string(result))
 }
