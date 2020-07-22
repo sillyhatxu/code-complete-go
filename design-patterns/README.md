@@ -2,7 +2,6 @@ https://github.com/svett/golang-design-patterns
 
 Structural Patterns
 
-Bridge: Separates an object’s interface from its implementation. Decouple an abstraction from its implementation so that the two can vary independently.
 Composite: A tree structure of simple and composite objects. Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
 Decorator: Add responsibilities to objects dynamically.  Attach additional responsibilities to an object dynamically. Decorators provide a             flexible alternative to subclassing for extending functionality.
 Facade: A single class that represents an entire subsystem. Provide a unified interface to a set of interfaces in a system. Facade defines a higher-level interface that makes the subsystem easier to use.
