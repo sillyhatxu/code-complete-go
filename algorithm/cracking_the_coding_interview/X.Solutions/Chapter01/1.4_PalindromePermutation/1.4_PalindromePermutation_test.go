@@ -7,11 +7,12 @@ import (
 
 func TestPalindromePermutation(t *testing.T) {
 	test := map[string]bool{
-		"deed":  true,
-		"level": true,
-		"test":  false,
-		"abac":  false,
-		"aabaa": true,
+		"deed":     true,
+		"level":    true,
+		"test":     false,
+		"abac":     false,
+		"aabaa":    true,
+		"Tact Coa": true,
 	}
 	for k, v := range test {
 		result := PalindromePermutation(k)

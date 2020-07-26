@@ -1,10 +1,29 @@
 package x_solutions_chapter01_PalindromePermutation
 
-//TODO
+import "strings"
+
 func PalindromePermutation(input string) bool {
-	palindrome := ""
-	for i := len(input) - 1; i >= 0; i-- {
-		palindrome += string(input[i])
+	check := map[byte]int{}
+	inputByte := []byte(strings.ToUpper(input))
+	for i := 0; i < len(inputByte); i++ {
+		if inputByte[i] == ' ' {
+			continue
+		}
+		_, ok := check[inputByte[i]]
+		if ok {
+			check[inputByte[i]] = check[inputByte[i]] + 1
+		} else {
+			check[inputByte[i]] = 1
+		}
 	}
-	return palindrome == input
+	oddCount := 0
+	for _, v := range check {
+		if v%2 == 1 {
+			oddCount++
+		}
+		if oddCount > 1 {
+			return false
+		}
+	}
+	return true
 }
