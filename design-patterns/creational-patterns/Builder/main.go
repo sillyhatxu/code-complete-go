@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/sillyhatxu/code-complete-go/design-patterns/Builder/build"
+	"github.com/sillyhatxu/code-complete-go/design-patterns/creational-patterns/Builder/build"
 	"time"
 )
 

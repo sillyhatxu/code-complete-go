@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/sillyhatxu/code-complete-go/design-patterns/Singleton/singleton"
+	"github.com/sillyhatxu/code-complete-go/design-patterns/creational-patterns/Singleton/singleton"
 )
 
 func main() {

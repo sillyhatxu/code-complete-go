@@ -1,8 +1,8 @@
 package main
 
 import (
-	"algorithm-go/word_frequency/statistics"
 	"fmt"
+	"github.com/sillyhatxu/code-complete-go/algorithm/word_frequency/statistics"
 	"path/filepath"
 )
 

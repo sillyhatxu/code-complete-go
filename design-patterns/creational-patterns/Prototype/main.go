@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/sillyhatxu/code-complete-go/design-patterns/Prototype/dom"
+	"github.com/sillyhatxu/code-complete-go/design-patterns/creational-patterns/Prototype/dom"
 )
 
 func main() {

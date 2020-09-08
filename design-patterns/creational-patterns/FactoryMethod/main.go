@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/sillyhatxu/code-complete-go/design-patterns/FactoryMethod/fm"
+	"github.com/sillyhatxu/code-complete-go/design-patterns/creational-patterns/FactoryMethod/fm"
 	"os"
 )
 
