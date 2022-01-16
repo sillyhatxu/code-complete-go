@@ -20,7 +20,7 @@ func min(a, b int) int {
 }
 
 // O(n)2
-func shortestDistance(wordsDict []string, word1 string, word2 string) int {
+func shortestDistanceBasic(wordsDict []string, word1 string, word2 string) int {
 	result := len(wordsDict)
 	for i, iWord := range wordsDict {
 		if iWord == word1 {
@@ -29,6 +29,24 @@ func shortestDistance(wordsDict []string, word1 string, word2 string) int {
 					result = min(result, abs(i, j))
 				}
 			}
+		}
+	}
+	return result
+}
+
+//O(n)
+func shortestDistance(wordsDict []string, word1 string, word2 string) int {
+	iIndex := -1
+	jIndex := -1
+	result := len(wordsDict)
+	for i, word := range wordsDict {
+		if word == word1 {
+			iIndex = i
+		} else if word == word2 {
+			jIndex = i
+		}
+		if iIndex != -1 && jIndex != -1 {
+			result = min(result, abs(iIndex, jIndex))
 		}
 	}
 	return result
