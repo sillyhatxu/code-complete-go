@@ -41,6 +41,7 @@ func main() {
 		nil, nil, nil,
 		toIntPoint(1),
 	}
+	//TODO buildBinaryTree
 	binaryTree := buildBinaryTree(mockData)
 	fmt.Println(hasPathSum(binaryTree, 22))
 }
