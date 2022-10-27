@@ -37,3 +37,14 @@ func TestPostOrderTraversal(t *testing.T) {
 	postOrderTraversal(demo)
 	fmt.Println()
 }
+
+/**
+深度优先搜索 - 后序遍历：
+A, C, E, D, B, H, I, G, F.
+*/
+func TestBreadthFirstTraversal(t *testing.T) {
+	demo := getTree()
+	fmt.Println("breadth-first traversal")
+	breadthFirstTraversal(demo)
+	fmt.Println()
+}
