@@ -71,15 +71,22 @@ func breadthFirstTraversal(node *TreeNode) {
 	if node == nil {
 		return
 	}
-	fmt.Print(node.Val, ", ")
-	breadthFirstTraversalChild(node.Left)
-	breadthFirstTraversalChild(node.Right)
-}
+	var result []*TreeNode
+	result = append(result, node)
 
-func breadthFirstTraversalChild(node *TreeNode) {
-	if node == nil {
-		return
+	i := 0
+	for result != nil && len(result) > 0 {
+		treeNode := result[i]
+		result = append(result[:i], result[i+1:]...)
+		fmt.Print(treeNode.Val, ", ")
+		leftNode := treeNode.Left
+		if leftNode != nil {
+			result = append(result, leftNode)
+		}
+		rightNode := treeNode.Right
+		if rightNode != nil {
+			result = append(result, rightNode)
+		}
+
 	}
-	fmt.Print(node.Val, ", ")
-	fmt.Print(node.Val, ", ")
 }

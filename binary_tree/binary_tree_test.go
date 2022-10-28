@@ -39,8 +39,8 @@ func TestPostOrderTraversal(t *testing.T) {
 }
 
 /**
-深度优先搜索 - 后序遍历：
-A, C, E, D, B, H, I, G, F.
+广度优先遍历 - 层次遍历：
+F, B, G, A, D, I, C, E, H.
 */
 func TestBreadthFirstTraversal(t *testing.T) {
 	demo := getTree()
