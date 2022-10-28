@@ -33,4 +33,4 @@ xxxxxx
 
 ### Translate:
 
-> > xxxxxxx
+> xxxxxxx
