@@ -17,3 +17,14 @@ func isSubsequence(s string, t string) bool {
 	}
 	return false
 }
+
+func isSubsequence1(s string, t string) bool {
+	s_i, t_i := 0, 0
+	for s_i < len(s) && t_i < len(t) {
+		if s[s_i] == t[t_i] {
+			s_i++
+		}
+		t_i++
+	}
+	return s_i == len(s)
+}
