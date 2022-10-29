@@ -2,7 +2,6 @@ package _200_Minimum_Absolute_Difference
 
 import "sort"
 
-//[4,2,1,3]
 func minimumAbsDifference(arr []int) [][]int {
 	sort.Ints(arr)
 	result := [][]int{{arr[0], arr[1]}}
