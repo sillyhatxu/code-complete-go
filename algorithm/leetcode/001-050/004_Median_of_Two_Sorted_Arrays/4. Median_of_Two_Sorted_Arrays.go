@@ -1,6 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
+
+func findMedianSortedArrays1(nums1 []int, nums2 []int) float64 {
+	nums1 = append(nums1, nums2...)
+	sort.Ints(nums1)
+	if len(nums1)%2 == 0 {
+		mid := len(nums1) / 2
+		return float64(nums1[mid-1]+nums1[mid]) / 2
+	} else {
+		return float64(nums1[len(nums1)/2])
+	}
+}
 
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	size, i, j := len(nums1)+len(nums2), 0, 0
@@ -32,17 +46,17 @@ func main() {
 	var array2 []int
 	array1 = []int{}
 	array2 = []int{1}
-	fmt.Println(findMedianSortedArrays(array1, array2))
+	fmt.Println(findMedianSortedArrays1(array1, array2))
 	array1 = []int{}
 	array2 = []int{2, 3}
-	fmt.Println(findMedianSortedArrays(array1, array2))
+	fmt.Println(findMedianSortedArrays1(array1, array2))
 	array1 = []int{1, 2}
 	array2 = []int{3, 4}
-	fmt.Println(findMedianSortedArrays(array1, array2))
+	fmt.Println(findMedianSortedArrays1(array1, array2))
 	array1 = []int{23, 29, 20, 32}
 	array2 = []int{23, 21, 33, 25}
-	fmt.Println(findMedianSortedArrays(array1, array2))
+	fmt.Println(findMedianSortedArrays1(array1, array2))
 	array1 = []int{13, 22, 12}
 	array2 = []int{8, 13}
-	fmt.Println(findMedianSortedArrays(array1, array2))
+	fmt.Println(findMedianSortedArrays1(array1, array2))
 }
