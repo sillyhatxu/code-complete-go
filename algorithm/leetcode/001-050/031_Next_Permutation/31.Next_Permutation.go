@@ -20,29 +20,25 @@ func nextPermutationOptimize(nums []int) {
 		return
 	}
 	x := -1
-	y := len(nums) - 2
-	for x != y {
-		if nums[y] >= nums[y+1] {
-			y--
-			continue
-		} else {
-			x = y
-			y = y + 1
+	for i := len(nums) - 2; i >= 0; i-- {
+		if nums[i] < nums[i+1] {
+			x = i
 			break
 		}
 	}
-	if y == 0 {
+	if x == -1 {
 		reverse(&nums, 0, len(nums)-1)
 		return
 	}
-	for i := y + 1; i < len(nums); i++ {
-		if nums[x] > nums[i] {
+	y := 0
+	for i := len(nums) - 1; i >= 0; i-- {
+		if nums[i] > nums[x] {
+			y = i
 			break
 		}
-		y = i
 	}
 	nums[x], nums[y] = nums[y], nums[x]
-	reverse(&nums, y, len(nums)-1)
+	reverse(&nums, x+1, len(nums)-1)
 }
 
 func reverse(nums *[]int, start int, end int) {
