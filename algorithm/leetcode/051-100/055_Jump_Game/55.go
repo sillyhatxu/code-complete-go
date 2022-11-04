@@ -8,7 +8,7 @@ func canJump(nums []int) bool {
 		}
 		max = mathMax(max, i+nums[i])
 	}
-	return max > -len(nums)-1
+	return max >= -len(nums)-1
 }
 
 func mathMax(a, b int) int {
