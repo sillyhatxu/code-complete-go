@@ -34,5 +34,4 @@ xxxxxx
 ### Translate:
 
 > xxxxxxxxxxxxxxxxxx
-> xxxxxxxxxxxxxxxxxx
 
