@@ -1,10 +1,21 @@
 package _78_Subsets
 
 func subsets(nums []int) [][]int {
-	result := [][]int{{}}
+	var result [][]int
 	if len(nums) == 0 {
 		return result
 	}
-
+	helper(&result, []int{}, nums, 0)
 	return result
+}
+
+func helper(result *[][]int, temp []int, nums []int, index int) {
+	copyTemp := make([]int, len(temp))
+	copy(copyTemp, temp)
+	*result = append(*result, copyTemp)
+	for i := index; i < len(nums); i++ {
+		temp = append(temp, nums[i])
+		helper(result, temp, nums, i+1)
+		temp = temp[:len(temp)-1]
+	}
 }
