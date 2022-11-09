@@ -1,22 +1,30 @@
 package main
 
 import (
+	"crypto/rand"
 	"fmt"
-	"math/rand"
+	"math/big"
 	"sort"
 	"time"
 )
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
-	fmt.Println("-------------------- Current TOTO Number --------------------")
-	randNumbers := rand.Perm(49)
-	start := rand.Intn(44)
+	fmt.Println("-------------------- Prepare Next TOTO Number --------------------")
+	totoPool := make(map[int]bool)
+	for {
+		time.Sleep(time.Second)
+		n, _ := rand.Int(rand.Reader, big.NewInt(49))
+		totoPool[int(n.Int64()+1)] = true
+		if len(totoPool) == 6 {
+			break
+		}
+		fmt.Println("-------------------- got it --------------------")
+	}
 	var nextLottery []int
-	for _, randNumber := range randNumbers[start : start+6] {
-		nextLottery = append(nextLottery, randNumber+1)
+	for selectedNumber := range totoPool {
+		nextLottery = append(nextLottery, selectedNumber)
 	}
 	sort.Ints(nextLottery)
 	fmt.Print(nextLottery)
-	fmt.Println("\n", "-------------------- Current TOTO Number --------------------")
+	fmt.Println("\n", "-------------------- OK. Got it. I'm going to get the first prize. --------------------")
 }
