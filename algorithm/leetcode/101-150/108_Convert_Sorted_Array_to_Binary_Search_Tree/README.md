@@ -37,4 +37,29 @@ There is no root-to-leaf path with sum = 5.
 
 ### Translate:
 
-> xxxxxxx
+> 108. 将有序数组转换为二叉搜索树
+
+给你一个整数数组 nums ，其中元素已经按 升序 排列，请你将其转换为一棵 高度平衡 二叉搜索树。
+
+高度平衡 二叉树是一棵满足「每个节点的左右两个子树的高度差的绝对值不超过 1 」的二叉树。
+
+
+### Recursion 0 ms 100%; Time: O(n); Space: O(logn)
+
+```golang
+func sortedArrayToBST(nums []int) *TreeNode {
+	return helper(&nums, 0, len(nums)-1)
+}
+
+func helper(nums *[]int, left, right int) *TreeNode {
+	if left > right {
+		return nil
+	}
+	mid := (left + right) / 2
+	return &TreeNode{
+		Val:   (*nums)[mid],
+		Left:  helper(nums, left, mid-1),
+		Right: helper(nums, mid+1, right),
+	}
+}
+```
