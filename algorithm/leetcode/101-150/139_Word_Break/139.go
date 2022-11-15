@@ -2,6 +2,7 @@ package _39_Word_Break
 
 import "fmt"
 
+//TODO 待查看
 //func wordBreak(s string, wordDict []string) bool {
 //	dp := make([]bool, len(s)+1)
 //	dp[len(s)] = true
