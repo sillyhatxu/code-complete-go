@@ -133,3 +133,49 @@ listB 中节点数目为 n
 
 
 进阶：你能否设计一个时间复杂度 O(m + n) 、仅用 O(1) 内存的解决方案？
+
+
+### 解题思路
+
+![image description](160_example_1_1.png)
+
+```
+A: 4   1   8   4   5   nil 5   6   1   8   4   5
+B: 5   6   1   8   4   5   nil 4   1   8   4   5
+                                       ↑遍历到这里时退出循环；return a(8   4   5)
+                                                              
+```
+
+![image description](160_example_3.png)
+
+```
+A: 2    6   4   nil 1   5   nil
+B: 1    5   nil 2   6   4   nil
+                             ↑遍历到这里时退出循环；return a(nil)
+                                                              
+```
+
+### 代码
+
+```golang
+func getIntersectionNode(headA, headB *ListNode) *ListNode {
+	if headA == nil || headB == nil {
+		return nil
+	}
+	a := headA
+	b := headB
+	for a != b {
+		if a == nil {
+			a = headB
+		} else {
+			a = a.Next
+		}
+		if b == nil {
+			b = headA
+		} else {
+			b = b.Next
+		}
+	}
+	return a
+}
+```
