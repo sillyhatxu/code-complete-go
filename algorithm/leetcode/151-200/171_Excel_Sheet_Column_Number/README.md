@@ -1,35 +1,46 @@
-# xxxxxxxx
+# 171. Excel Sheet Column Number
 
-xxxxxxxxx
+Given a string columnTitle that represents the column title as appears in an Excel sheet, return its corresponding column number.
 
+For example:
+
+```
+A -> 1
+B -> 2
+C -> 3
+...
+Z -> 26
+AA -> 27
+AB -> 28 
+...
+```
 
 ### Example 1:
 
-![image description](xxxxx.jpeg)
-
 ```
-xxxxxx
+Input: columnTitle = "A"
+Output: 1
 ```
 
 ### Example 2:
 
-![image description](xxxxx.jpeg)
-
 ```
-xxxxxxxxx
+Input: columnTitle = "AB"
+Output: 28
 ```
 
 ### Example 3:
 
 ```
-xxxxxx
+Input: columnTitle = "ZY"
+Output: 701
 ```
 
 ### Constraints:
 
-* xxxxxxxxxxxxxxxxxx
-* xxxxxxxxxxxxxxxxxx
-* xxxxxxxxxxxxxxxxxx
+* 1 <= columnTitle.length <= 7
+* columnTitle consists only of uppercase English letters.
+* columnTitle is in the range ["A", "FXSHRXW"].
 
 ### Translate:
 
