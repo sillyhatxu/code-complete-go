@@ -1,7 +1,5 @@
 package _30_Kth_Smallest_Element_in_a_BST
 
-import "fmt"
-
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -17,20 +15,13 @@ func kthSmallest(root *TreeNode, k int) int {
 			arr = append(arr, root)
 			root = root.Left
 		}
-		root := arr[len(arr)-1]
+		root = arr[len(arr)-1]
 		arr = arr[:len(arr)-1]
 		k--
 		if k == 0 {
 			return root.Val
 		}
 		root = root.Right
-		if root != nil {
-			fmt.Println(root.Val)
-		}
-		//for root != nil {
-		//	arr = append(arr, root)
-		//	root = root.Left
-		//}
 	}
 }
 
