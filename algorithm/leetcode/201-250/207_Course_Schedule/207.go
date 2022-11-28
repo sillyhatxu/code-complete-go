@@ -1,6 +1,5 @@
 package _07_Course_Schedule
 
-//TODO
 func canFinish(numCourses int, prerequisites [][]int) bool {
 	courseNum := make([]int, numCourses, numCourses)
 	for i := 0; i < len(prerequisites); i++ {

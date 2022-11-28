@@ -6,5 +6,6 @@ import (
 )
 
 func Test_canFinish(t *testing.T) {
-	assert.EqualValues(t, true, canFinish(5, [][]int{{1, 0}, {2, 1}, {3, 2}, {4, 3}, {3, 1}}))
+	//assert.EqualValues(t, true, canFinish(5, [][]int{{1, 0}, {2, 1}, {3, 2}, {4, 3}, {3, 1}}))
+	assert.EqualValues(t, true, canFinish(4, [][]int{{1, 0}, {2, 1}, {2, 0}, {0, 3}}))
 }
