@@ -60,3 +60,70 @@ Output: [[1,1],[1,1]]
 
 * 你可以使用原地算法解决本题吗？请注意，面板上所有格子需要同时被更新：你不能先更新某些格子，然后使用它们的更新后的值再更新其他格子。
 * 本题中，我们使用二维数组来表示面板。原则上，面板是无限的，但当活细胞侵占了面板边界时会造成问题。你将如何解决这些问题？
+
+
+### 解题思路
+
+|current|current number|neighbor count|calculate|How to get next state|How to get current state|
+|:---|:---:|:---:|:---:|:---:|:---:|
+| alive | 1 | <2     | N/A = 1   | 1 >> 1 = 0 | 1 & 1 = 1 |
+| alive | 1 | 2 or 3 | 1 + 2 = 3 | 3 >> 1 = 1 | 3 & 1 = 1 |
+| alive | 1 | > 3    | N/A = 1   | 1 >> 1 = 0 | 1 & 1 = 1 |
+| dead  | 0 | 3      | 0 + 2 = 2 | 2 >> 1 = 1 | 2 & 1 = 0 |
+| dead  | 0 | <2     | N/A = 0   | 0 >> 1 = 0 | 0 & 1 = 0 |
+
+### 代码
+
+```golang
+func gameOfLife(board [][]int) {
+	rowIndex, colIndex := len(board), len(board[0])
+	for i := 0; i < rowIndex; i++ {
+		for j := 0; j < colIndex; j++ {
+			neighbor := neighborCount(board, i, j)
+			if board[i][j] == 1 {
+				if neighbor == 2 || neighbor == 3 {
+					board[i][j] += 2
+				}
+			} else if board[i][j] == 0 {
+				if neighbor == 3 {
+					board[i][j] += 2
+				}
+			}
+		}
+	}
+	for i := 0; i < rowIndex; i++ {
+		for j := 0; j < colIndex; j++ {
+			board[i][j] >>= 1
+		}
+	}
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func neighborCount(board [][]int, rowIndex, colIndex int) int {
+	count := 0
+	for i := max(0, rowIndex-1); i <= min(rowIndex+1, len(board)-1); i++ {
+		for j := max(0, colIndex-1); j <= min(colIndex+1, len(board[0])-1); j++ {
+			if i == rowIndex && j == colIndex {
+				continue
+			}
+			if board[i][j] & 1 == 1 {
+				count++
+			}
+		}
+	}
+	return count
+}
+```
