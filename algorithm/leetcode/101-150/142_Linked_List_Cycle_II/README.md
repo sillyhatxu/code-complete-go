@@ -82,3 +82,7 @@ Can you solve it using O(1) (i.e. constant) memory?
 pos 的值为 -1 或者链表中的一个有效索引
 
 进阶：你是否可以使用 O(1) 空间解决此题？
+
+https://youtu.be/UkKBPGt5Nok
+
+![image description](WechatIMG414.jpeg)
