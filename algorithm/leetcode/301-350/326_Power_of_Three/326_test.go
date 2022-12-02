@@ -13,6 +13,7 @@ func Test_isPowerOfThree1(t *testing.T) {
 	fmt.Println(res)
 }
 func Test_isPowerOfThree(t *testing.T) {
+	assert.EqualValues(t, false, isPowerOfThree(531440))
 	assert.EqualValues(t, true, isPowerOfThree(3))
 	assert.EqualValues(t, true, isPowerOfThree(27))
 	assert.EqualValues(t, false, isPowerOfThree(0))

@@ -6,9 +6,6 @@ import (
 
 //non-loops
 func isPowerOfThree(n int) bool {
-	//temp := math.Log10(float64(n)) / math.Log10(float64(3))
-	//_, res := math.Modf(temp)
-	//return res == 0.0
 	if n <= 0 {
 		return false
 	}

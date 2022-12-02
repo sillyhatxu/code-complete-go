@@ -49,7 +49,33 @@ Could you solve it without loops/recursion?
 
 ### 解题思路
 
+最终解决方案
+
 ### non-loops
+
+```golang
+func isPowerOfThree(n int) bool {
+	if n <= 0 {
+		return false
+	}
+	quo,_ := math.Modf(math.Log10(float64(n)) / math.Log10(3))
+	return n == int(math.Pow(3, quo))
+}
+```
+
+### loops
+
+```golang
+func isPowerOfThree(n int) bool {
+	if n <= 0 {
+		return false
+	}
+	for n%3 == 0 {
+		n /= 3
+	}
+	return n == 1
+}
+```
 
 已知下边的公式
 ![image description](WechatIMG415.jpeg)
@@ -78,30 +104,3 @@ func isPowerOfThree(n int) bool {
 > temp := math.Log10(float64(27)) / math.Log10(float64(3))
 > 
 > temp = 3.0000000000000004
-
-```golang
-func isPowerOfThree(n int) bool {
-	temp := math.Log10(float64(n)) / math.Log10(float64(3))
-	_, res := math.Modf(temp)
-	return res == 0.0
-	if n <= 0 {
-		return false
-	}
-	quo,_ := math.Modf(math.Log10(float64(n)) / math.Log10(3))
-	return n == int(math.Pow(3, quo))
-}
-```
-
-### loops
-
-```golang
-func isPowerOfThree(n int) bool {
-	if n <= 0 {
-		return false
-	}
-	for n%3 == 0 {
-		n /= 3
-	}
-	return n == 1
-}
-```
