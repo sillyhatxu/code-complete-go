@@ -3,6 +3,13 @@ package _63_Missing_Ranges
 import "fmt"
 
 func findMissingRanges(nums []int, lower int, upper int) []string {
+	if len(nums) == 0 {
+		if lower == upper {
+			return []string{fmt.Sprintf("%d", lower)}
+		} else {
+			return []string{fmt.Sprintf("%d->%d", lower, upper)}
+		}
+	}
 	min := func(a, b int) int {
 		if a < b {
 			return a
@@ -10,7 +17,6 @@ func findMissingRanges(nums []int, lower int, upper int) []string {
 		return b
 	}
 	lower = min(nums[0], lower)
-	//upper = min(nums[len(nums)-1], upper)
 	var res []string
 	for i := 0; i < len(nums); i++ {
 		if lower == nums[i] {
