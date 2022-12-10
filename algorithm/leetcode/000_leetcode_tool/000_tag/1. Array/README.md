@@ -7,6 +7,10 @@
 | 11. Container With Most Water | Medium | O(n) | O(1) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
 | 15. 3Sum | Medium | O(n) | O(1) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` `PayPal` |
 | 16. 3Sum Closest | Medium | O(n^2) | O(1) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
+| 18. 4Sum | Medium | O(n^3) | O(n^2) | `Amazon` `Facebook` `ByteDance` |
+| 26. Remove Duplicates from Sorted Array | Easy | O(n) | O(1) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
+| 27. Remove Element | Easy | O(n) | O(1) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
+| xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
 | xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
 | xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
 | xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
