@@ -25,39 +25,91 @@ package _41_Flatten_Nested_List_Iterator
  * // You can access NestedInteger's List element directly if you want to modify it
  * func (this NestedInteger) GetList() []*NestedInteger {}
  */
-
+//TODO
 type NestedIterator struct {
-	nestedList   []*NestedInteger
-	currentIndex int
-	listIndex    int
+	Stack Stack
 }
 
+/*
+Custom type Stack. Start...
+*/
+type Stack []Element
+
+type Element struct {
+	data []*NestedInteger
+	i    int
+}
+
+func (s *Stack) Top() Element {
+	if len(*s) == 0 {
+		return Element{}
+	}
+	return (*s)[len(*s)-1]
+}
+
+func (s *Stack) Pop() Element {
+	top := s.Top()
+	*s = (*s)[:len(*s)-1]
+	return top
+}
+
+func (s *Stack) Push(x Element) {
+	*s = append(*s, x)
+}
+
+func (s *Stack) Len() int {
+	return len(*s)
+}
+
+/*
+Custom type Stack. End...
+*/
+
 func Constructor(nestedList []*NestedInteger) *NestedIterator {
-	return &NestedIterator{nestedList: nestedList, currentIndex: 0, listIndex: 0}
+	res := &NestedIterator{Stack: make(Stack, 0)}
+	if len(nestedList) == 0 {
+		return res
+	}
+	res.Stack.Push(Element{data: nestedList, i: 0})
+	return res
 }
 
 func (this *NestedIterator) Next() int {
-	currentNestedInteger := this.nestedList[this.currentIndex]
-	if currentNestedInteger.IsInteger() {
-		this.currentIndex++
-		return currentNestedInteger.GetInteger()
+	top := this.Stack.Pop()
+	if top.data[top.i].IsInteger() {
+		if top.i < len(top.data)-1 {
+			this.Stack.Push(Element{top.data, top.i + 1})
+		}
+		return top.data[top.i].GetInteger()
+	} else {
+		if top.i < len(top.data)-1 {
+			this.Stack.Push(Element{top.data, top.i + 1})
+		}
+		nextList := top.data[top.i].GetList()
+		this.Stack.Push(Element{nextList, 0})
+		return this.Next()
 	}
-	res := currentNestedInteger.GetList()[this.listIndex]
-	this.listIndex++
-	if this.listIndex == len(currentNestedInteger.GetList()) {
-		this.listIndex = 0
-		this.currentIndex++
-	}
-	return res.GetInteger()
 }
 
 func (this *NestedIterator) HasNext() bool {
-	return this.nestedList != nil && this.nestedList[this.currentIndex] != nil
+	top := this.Stack.Top()
+	for this.Stack.Len() > 0 && !top.data[top.i].IsInteger() {
+		top = this.Stack.Pop()
+		if top.i < len(top.data)-1 {
+			this.Stack.Push(Element{top.data, top.i + 1})
+		}
+		nextList := top.data[top.i].GetList()
+		if len(nextList) != 0 {
+			this.Stack.Push(Element{nextList, 0})
+		}
+		top = this.Stack.Top()
+	}
+	return this.Stack.Len() > 0
 }
 
 type NestedInteger struct {
 	value *int
-	next  []*NestedInteger
+	array []*NestedInteger
 }
 
 func (this NestedInteger) IsInteger() bool {
@@ -73,9 +125,9 @@ func (this *NestedInteger) SetInteger(value int) {
 }
 
 func (this *NestedInteger) Add(elem NestedInteger) {
-	this.next = append(this.next, &elem)
+
 }
 
 func (this NestedInteger) GetList() []*NestedInteger {
-	return this.next
+	return this.array
 }
