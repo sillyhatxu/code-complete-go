@@ -19,7 +19,12 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 > 给定一个数组 [1,2,3] 这个数组可以组成一个数字 123，把可以组成的所有的数字，按照从小到大排列，123这个数字的下一个数字就是132
 
 
-### 解题思路
+### 解题思路     0 ms , 100.00%; Time: O(n); Space: O(1)
+
+* 从后往前找到第1个降序,坐标x
+* 从后往前找第一个比nums[x]大的数，坐标y
+* 交换nums[x] 和 nums[y]
+* 将x后边的数字，翻转 1234 -> 4321
 
 1. len == 0 || len == 1 直接return
 2. 如果本身是单调递减(321)直接反转即可(123)
