@@ -11,13 +11,13 @@
 | 26. Remove Duplicates from Sorted Array | Easy | O(n) | O(1) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
 | 27. Remove Element | Easy | O(n) | O(1) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
 | 31. Next Permutation | Medium | O(n) | O(1) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
-| 33. Search in Rotated Sorted Array | Medium |   |   | xxxxxxxxx |
-| xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
+| 33. Search in Rotated Sorted Array | Medium | O(log n) | O(1) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
+| 34. Find First and Last Position of Element in Sorted Array | Easy Medium Hard | O(log n) | O(1) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
 | xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
 | xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
 | xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
 
-
+`Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber`
 `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` `eBay` `PayPal`
 
 
