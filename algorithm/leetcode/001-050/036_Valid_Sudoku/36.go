@@ -6,6 +6,32 @@ import (
 )
 
 func isValidSudoku(board [][]byte) bool {
+	validMap := make(map[string]struct{})
+	for row := 0; row < len(board); row++ {
+		for col := 0; col < len(board[0]); col++ {
+			number := board[row][col]
+			if number == '.' {
+				continue
+			}
+			keyRow := fmt.Sprintf("r[%d]%d", row, number)
+			keyCol := fmt.Sprintf("c[%d]%d", col, number)
+			keyBlock := fmt.Sprintf("b[%d]%d-%d", number, row/3, col/3)
+			if _, ok := validMap[keyRow]; ok {
+				return false
+			} else if _, ok := validMap[keyCol]; ok {
+				return false
+			} else if _, ok := validMap[keyBlock]; ok {
+				return false
+			}
+			validMap[keyRow] = struct{}{}
+			validMap[keyCol] = struct{}{}
+			validMap[keyBlock] = struct{}{}
+		}
+	}
+	return true
+}
+
+func isValidSudoku1(board [][]byte) bool {
 	rowMap := [9][9]bool{}
 	columnMap := [9][9]bool{}
 	gridMap := [9][9]bool{}
@@ -27,18 +53,4 @@ func isValidSudoku(board [][]byte) bool {
 		}
 	}
 	return true
-}
-
-func main() {
-	fmt.Println(0 / 3)
-	fmt.Println(1 / 3)
-	fmt.Println(2 / 3)
-	fmt.Println(3 / 3)
-	fmt.Println(4 / 3)
-	fmt.Println(5 / 3)
-	fmt.Println(6 / 3)
-	fmt.Println(7 / 3)
-	fmt.Println(8 / 3)
-
-	//isValidSudoku(nil)
 }
