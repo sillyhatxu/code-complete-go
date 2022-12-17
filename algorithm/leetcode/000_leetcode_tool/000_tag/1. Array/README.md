@@ -16,15 +16,15 @@
 | 35. Search Insert Position | Easy | O(log n) | O(1) | `Amazon` `Google` `Facebook` `Microsoft` |
 | 36. Valid Sudoku | Medium |   |   | `Amazon` `Facebook`  |
 | 37. Sudoku Solver | Hard |   |   | `Amazon` `Google` `ByteDance` `Uber` |
-| xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
-| xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
+| 39. Combination Sum | Medium | O(n!) | O(n) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` `eBay` |
+| 40. Combination Sum II | Medium | O(n!) | O(n) | xxxxxxxxx |
 | xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
 | xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
 | xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
 | xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
 | xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxx |
 
-`Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber`
+`Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` `eBay`
 `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` `eBay` `PayPal`
 
 
