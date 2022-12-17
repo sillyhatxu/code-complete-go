@@ -2,17 +2,40 @@ package _37_Sudoku_Solver
 
 import "fmt"
 
+//TODO
 func solveSudoku(board [][]byte) {
 	var rows [][]bool
 	var columns [][]bool
 	var blocks [][]bool
 	initial(board, &rows, &columns, &blocks)
-	dfs(board, &rows, &columns, &blocks, 0, 0)
+	dfs(&board, &rows, &columns, &blocks, 0, 0)
 	fmt.Println(board)
 }
 
-func dfs(board [][]byte, rows *[][]bool, columns *[][]bool, blocks *[][]bool, i, j int) {
+func dfs(board *[][]byte, rows *[][]bool, columns *[][]bool, blocks *[][]bool, i, j int) {
+	number := (*board)[i][j]
+	if number != '.' {
+		nextI, nextJ := nextCell(i, j)
+		if nextI == -1 {
+			return
+		}
+		dfs(board, rows, columns, blocks, nextI, nextJ)
+		return
+	}
+	for cell := '1'; cell <= '9'; cell++ {
 
+	}
+
+}
+
+func nextCell(i, j int) (int, int) {
+	if i == 8 && j == 8 {
+		return -1, -1
+	} else if j == 8 {
+		return i + 1, 0
+	} else {
+		return i, j + 1
+	}
 }
 
 func initial(board [][]byte, rows *[][]bool, columns *[][]bool, blocks *[][]bool) {
