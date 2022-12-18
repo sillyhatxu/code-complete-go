@@ -1,6 +1,6 @@
-package _40_Longest_Substring_with_At_Most_K_Distinct_Characters
+package _59_Longest_Substring_with_At_Most_Two_Distinct_Characters
 
-func lengthOfLongestSubstringKDistinct(s string, k int) int {
+func lengthOfLongestSubstringTwoDistinct(s string) int {
 	max := func(a, b int) int {
 		if a > b {
 			return a
@@ -11,7 +11,7 @@ func lengthOfLongestSubstringKDistinct(s string, k int) int {
 	res, left := 0, 0
 	for right := 0; right < len(s); right++ {
 		indexMap[s[right]]++
-		for len(indexMap) > k {
+		for len(indexMap) > 2 {
 			indexMap[s[left]]--
 			if indexMap[s[left]] == 0 {
 				delete(indexMap, s[left])
@@ -23,7 +23,7 @@ func lengthOfLongestSubstringKDistinct(s string, k int) int {
 	return res
 }
 
-func lengthOfLongestSubstringKDistinct1(s string, k int) int {
+func lengthOfLongestSubstringTwoDistinct1(s string) int {
 	max := func(a, b int) int {
 		if a > b {
 			return a
@@ -40,10 +40,10 @@ func lengthOfLongestSubstringKDistinct1(s string, k int) int {
 	start, size := 0, 0
 	for i := 0; i < len(s); i++ {
 		indexMap[s[i]] = i
-		if len(indexMap) > k {
+		if len(indexMap) > 2 {
 			delIndex := i
-			for _, index := range indexMap {
-				delIndex = min(delIndex, index)
+			for _, v := range indexMap {
+				delIndex = min(delIndex, v)
 			}
 			start = delIndex + 1
 			delete(indexMap, s[delIndex])
