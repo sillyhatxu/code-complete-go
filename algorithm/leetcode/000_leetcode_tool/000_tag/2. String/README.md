@@ -2,10 +2,10 @@
 
 |No.|Difficulty|Time Complexity|Space Complexity|Company List|
 |:---:|:---:|:---:|:---:|:---:|
-| xxxxxxxx | Easy Medium Hard |   |   | Amazon/Google/Adobe/ByteDance |
-| xxxxxxxx | Easy Medium Hard |   |   | Amazon/Google/Adobe/ByteDance |
-| xxxxxxxx | Easy Medium Hard |   |   | Amazon/Google/Adobe/ByteDance |
-| xxxxxxxx | Easy Medium Hard |   |   | Amazon/Google/Adobe/ByteDance |
+| 157. Read N Characters Given Read4 | Easy |   |   | `Amazon` |
+| xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxxxxxxx |
+| xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxxxxxxx |
+| xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxxxxxxx |
 
 
 
