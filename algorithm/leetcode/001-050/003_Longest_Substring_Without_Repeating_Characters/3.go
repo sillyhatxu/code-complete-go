@@ -5,35 +5,26 @@ import (
 	"github.com/google/gxui/math"
 )
 
-/**
-
-3. Longest Substring Without Repeating Characters
-
-Given a string, find the length of the longest substring without repeating characters.
-
-Example 1:
-
-Input: "abcabcbb"
-Output: 3
-Explanation: The answer is "abc", with the length of 3.
-Example 2:
-
-Input: "bbbbb"
-Output: 1
-Explanation: The answer is "b", with the length of 1.
-Example 3:
-
-Input: "pwwkew"
-Output: 3
-Explanation: The answer is "wke", with the length of 3.
-             Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
-
-给定一个字符串，找到长度最长不重复的字符
-翻译：这题看了好久没明白什么意思，直到看到了一个动态图，所以我自己重新做了一个图解，来帮助理解题意
-
-*/
-
 func lengthOfLongestSubstring(s string) int {
+	max := func(a, b int) int {
+		if a > b {
+			return a
+		}
+		return b
+	}
+	check := make(map[byte]int)
+	res, left := 0, 0
+	for i := 0; i < len(s); i++ {
+		if v, ok := check[s[i]]; ok && v >= left {
+			left = check[s[i]] + 1
+		}
+		check[s[i]] = i
+		res = max(res, i-left+1)
+	}
+	return res
+}
+
+func lengthOfLongestSubstring1(s string) int {
 	maxLength := 0
 	var currentArray []string
 	for _, r := range s {
