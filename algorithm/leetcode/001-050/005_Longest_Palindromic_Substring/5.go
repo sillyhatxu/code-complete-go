@@ -1,6 +1,45 @@
 package main
 
-import "fmt"
+func longestPalindrome(s string) string {
+	if len(s) == 0 || len(s) == 1 || (len(s) == 2 && s[0] == s[1]) {
+		//s = ""; s = "a"; s = "aa"
+		return s
+	}
+	isPalindrome := func(i string) bool {
+		l, r := 0, len(i)-1
+		for l < r {
+			if s[l] != s[r] {
+				return false
+			}
+			l++
+			r--
+		}
+		return true
+	}
+	//max := func(a, b int) int {
+	//	if a > b {
+	//		return a
+	//	}
+	//	return b
+	//}
+	pre, res := s[:1], s[:1]
+	for i := 1; i < len(s); i++ {
+		begin := i - len(pre) - 1
+		if begin < 0 {
+			begin = 0
+		}
+		for j := begin; j <= i; j++ {
+			if isPalindrome(s[j : i+1]) {
+				pre = s[j : i+1]
+				if len(pre) > len(res) {
+					res = pre
+				}
+				break
+			}
+		}
+	}
+	return res
+}
 
 //最简单的理解方式，不过很现实时间复杂度太高了，LeetCode已经超时
 func longestPalindromeLow(s string) string {
@@ -63,7 +102,7 @@ LeetCode 中最牛逼解法
 Runtime: 0 ms, faster than 100.00% of Go online submissions for Longest Palindromic Substring.
 Memory Usage: 2.2 MB, less than 98.26% of Go online submissions for Longest Palindromic Substring.
 */
-func longestPalindrome(s string) string {
+func longestPalindromeBest(s string) string {
 	if s == "" {
 		return ""
 	}
@@ -96,14 +135,4 @@ func isPalindrome(s string) bool {
 		right--
 	}
 	return true
-}
-
-func main() {
-	fmt.Println(longestPalindromeOptimize(""))
-	fmt.Println(longestPalindromeOptimize("a"))
-	fmt.Println(longestPalindromeOptimize("bb"))
-	fmt.Println(longestPalindromeOptimize("ccc"))
-	fmt.Println(longestPalindromeOptimize("babad"))
-	fmt.Println(longestPalindromeOptimize("forgeeksskeegfor"))
-	fmt.Println(longestPalindromeOptimize("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"))
 }
