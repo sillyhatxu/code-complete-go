@@ -8,7 +8,7 @@ func longestPalindrome(s string) string {
 	isPalindrome := func(i string) bool {
 		l, r := 0, len(i)-1
 		for l < r {
-			if s[l] != s[r] {
+			if i[l] != i[r] {
 				return false
 			}
 			l++
@@ -16,21 +16,15 @@ func longestPalindrome(s string) string {
 		}
 		return true
 	}
-	//max := func(a, b int) int {
-	//	if a > b {
-	//		return a
-	//	}
-	//	return b
-	//}
 	pre, res := s[:1], s[:1]
-	for i := 1; i < len(s); i++ {
-		begin := i - len(pre) - 1
-		if begin < 0 {
-			begin = 0
+	for right := 1; right < len(s); right++ {
+		left := right - len(pre) - 1
+		if left < 0 {
+			left = 0
 		}
-		for j := begin; j <= i; j++ {
-			if isPalindrome(s[j : i+1]) {
-				pre = s[j : i+1]
+		for j := left; j <= right; j++ {
+			if isPalindrome(s[j : right+1]) {
+				pre = s[j : right+1]
 				if len(pre) > len(res) {
 					res = pre
 				}

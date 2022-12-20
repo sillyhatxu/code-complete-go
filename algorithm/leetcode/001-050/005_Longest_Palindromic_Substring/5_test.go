@@ -6,11 +6,11 @@ import (
 )
 
 func Test_longestPalindrome(t *testing.T) {
-	//assert.EqualValues(t, "", longestPalindrome(""))
-	//assert.EqualValues(t, "a", longestPalindrome("a"))
-	//assert.EqualValues(t, "bb", longestPalindrome("bb"))
-	//assert.EqualValues(t, "ccc", longestPalindrome("ccc"))
-	//assert.EqualValues(t, "bab", longestPalindrome("babad"))
+	assert.EqualValues(t, "", longestPalindrome(""))
+	assert.EqualValues(t, "a", longestPalindrome("a"))
+	assert.EqualValues(t, "bb", longestPalindrome("bb"))
+	assert.EqualValues(t, "ccc", longestPalindrome("ccc"))
+	assert.EqualValues(t, "bab", longestPalindrome("babad"))
 	assert.EqualValues(t, "geeksskeeg", longestPalindrome("forgeeksskeegfor"))
 	assert.EqualValues(t, "ranynar", longestPalindrome("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"))
 }
