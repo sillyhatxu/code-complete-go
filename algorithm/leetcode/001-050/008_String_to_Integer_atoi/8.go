@@ -6,12 +6,48 @@ import (
 	"strconv"
 )
 
+func myAtoi(s string) int {
+	temp, sign, start := int64(0), 1, false
+	for _, v := range s {
+		if v == ' ' && !start {
+			continue
+		} else if v == '+' && !start {
+			sign = 1
+			start = true
+			continue
+		} else if v == '-' && !start {
+			sign = -1
+			start = true
+			continue
+		}
+		if '0' <= v && v <= '9' {
+			start = true
+			temp = temp*10 + int64(v-'0')
+			if temp > math.MaxInt32 {
+				if sign == -1 {
+					temp = math.MaxInt32 + 1
+				} else {
+					temp = math.MaxInt32
+				}
+				break
+			}
+		} else {
+			break
+		}
+
+	}
+	if sign == -1 {
+		return int(temp) * sign
+	}
+	return int(temp)
+}
+
 /**
 Runtime: 8 ms, faster than 15.82% of Go online submissions for String to Integer (atoi).
 Memory Usage: 2.4 MB, less than 66.67% of Go online submissions for String to Integer (atoi).
 Next challenges:
 */
-func myAtoi(str string) int {
+func myAtoi1(str string) int {
 	resultSrc := ""
 	sign := 1
 	start := true
