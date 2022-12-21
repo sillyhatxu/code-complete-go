@@ -1,8 +1,21 @@
 package main
 
-import "fmt"
+import "strings"
 
 func longestCommonPrefix(strs []string) string {
+	if len(strs) == 0 {
+		return ""
+	}
+	res := strs[0]
+	for i := 1; i < len(strs); i++ {
+		for !strings.HasPrefix(strs[i], res) {
+			res = res[:len(res)-1]
+		}
+	}
+	return res
+}
+
+func longestCommonPrefixOriginal(strs []string) string {
 	if len(strs) == 0 {
 		return ""
 	}
@@ -32,15 +45,4 @@ func longestCommonPrefix(strs []string) string {
 		}
 	}
 	return result
-}
-
-func main() {
-	array := []string{"flower", "flow", "flight"}
-	fmt.Println(longestCommonPrefix(array) == "fl")
-	array = []string{"dog", "racecar", "car"}
-	fmt.Println(longestCommonPrefix(array) == "")
-	array = []string{}
-	fmt.Println(longestCommonPrefix(array) == "")
-	array = []string{"aa", "a"}
-	fmt.Println(longestCommonPrefix(array) == "a")
 }
