@@ -1,6 +1,26 @@
 package main
 
-import "fmt"
+func letterCombinations(digits string) []string {
+	if digits == "" {
+		return []string{}
+	}
+	dick := []string{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}
+	var queue []string
+	for i := 0; i < len(digits); i++ {
+		src := dick[digits[i]-'0']
+		for len(queue) == 0 || len(queue[0]) == i {
+			curr := ""
+			if len(queue) != 0 {
+				curr = queue[0]
+				queue = queue[1:]
+			}
+			for j := 0; j < len(src); j++ {
+				queue = append(queue, curr+string(src[j]))
+			}
+		}
+	}
+	return queue
+}
 
 func switchLetter(letter byte) []string {
 	switch {
@@ -35,7 +55,7 @@ func merge(a1, a2 []string) []string {
 	return result
 }
 
-func letterCombinations(digits string) []string {
+func letterCombinationsOriginal(digits string) []string {
 	if digits == "" {
 		return []string{}
 	} else if len(digits) == 1 {
@@ -46,11 +66,4 @@ func letterCombinations(digits string) []string {
 		result = merge(result, switchLetter(digits[i]))
 	}
 	return result
-}
-
-func main() {
-	fmt.Println(letterCombinations(""))
-	fmt.Println(letterCombinations("2"))
-	fmt.Println(letterCombinations("23"))
-	fmt.Println(letterCombinations("234"))
 }
