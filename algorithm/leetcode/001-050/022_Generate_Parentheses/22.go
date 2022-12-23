@@ -3,6 +3,25 @@ package main
 import "fmt"
 
 func generateParenthesis(n int) []string {
+	var backtracking func(res *[]string, curr string, l, r int)
+	backtracking = func(res *[]string, curr string, l, r int) {
+		if l == 0 && r == 0 {
+			*res = append(*res, curr)
+			return
+		}
+		if l > 0 {
+			backtracking(res, curr+"(", l-1, r)
+		}
+		if r > l {
+			backtracking(res, curr+")", l, r-1)
+		}
+	}
+	var res []string
+	backtracking(&res, "", n, n)
+	return res
+}
+
+func generateParenthesisOriginal(n int) []string {
 	result := make([]string, 0)
 	var sign []byte
 	backtrack(&result, sign, 0, 0, n)
