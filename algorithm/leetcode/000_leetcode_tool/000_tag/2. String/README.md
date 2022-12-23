@@ -8,7 +8,7 @@
 | 12. Integer to Roman | Medium | O(1) | O(1) | `Amazon` `Google` `Facebook` `Microsoft` |
 | 13. Roman to Integer | Easy | O(n) | O(1) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
 | 14. Longest Common Prefix | Easy | O(n!) | O(n) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
-| 17. Letter Combinations of a Phone Number | Medium |   |   | xxxxxxxxxxxxxx |
+| 17. Letter Combinations of a Phone Number | Medium |   |   | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
 | 20. Valid Parentheses | Easy | O(n) | O(n) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
 | 22. Generate Parentheses | Medium |   |   | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
 | 28. Find the Index of the First Occurrence in a String | Easy Medium Hard | O(n) | O(1) | `Amazon` `Google` `ByteDance` `Microsoft` |
