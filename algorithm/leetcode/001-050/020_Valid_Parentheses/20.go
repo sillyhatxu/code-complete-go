@@ -1,13 +1,31 @@
 package main
 
-import "fmt"
+func isValid(s string) bool {
+	m := map[byte]byte{
+		')': '(',
+		']': '[',
+		'}': '{',
+	}
+	var stack []byte
+	for i := 0; i < len(s); i++ {
+		if v, ok := m[s[i]]; ok {
+			if len(stack) == 0 || stack[0] != v {
+				return false
+			}
+			stack = stack[1:]
+		} else {
+			stack = append([]byte{s[i]}, stack...)
+		}
+	}
+	return len(stack) == 0
+}
 
 /**
 Runtime: 0 ms, faster than 100.00% of Go online submissions for Valid Parentheses.
 Memory Usage: 2 MB, less than 100.00% of Go online submissions for Valid Parentheses.
 Next challenges:
 */
-func isValid(s string) bool {
+func isValidOriginal(s string) bool {
 	signMap := map[string]string{
 		")": "(",
 		"]": "[",
@@ -24,12 +42,4 @@ func isValid(s string) bool {
 		}
 	}
 	return index == -1
-}
-
-func main() {
-	fmt.Println(isValid("()"))
-	fmt.Println(isValid("()[]{}"))
-	fmt.Println(isValid("(]"))
-	fmt.Println(isValid("([)]"))
-	fmt.Println(isValid("{[]}"))
 }
