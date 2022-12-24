@@ -13,6 +13,7 @@
 | 22. Generate Parentheses | Medium |   |   | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` |
 | 28. Find the Index of the First Occurrence in a String | Easy Medium Hard | O(n) | O(1) | `Amazon` `Google` `ByteDance` `Microsoft` |
 | 43. Multiply Strings | Medium | O(len(num1) + len(num2)) | O(len(num1) + len(num2)) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` |
+| 49. Group Anagrams | Medium | O(n) | O(n) | `Amazon` `Google` `Facebook` `ByteDance` `Microsoft` `Uber` `eBay` `PayPal`|
 | 157. Read N Characters Given Read4 | Easy |   |   | `Amazon` |
 | xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxxxxxxx |
 | xxxxxxxx | Easy Medium Hard |   |   | xxxxxxxxxxxxxx |

@@ -5,19 +5,43 @@ import (
 )
 
 func groupAnagrams(strs []string) [][]string {
-	tempMap := map[[26]int][]string{}
+	helper := func(s string) string {
+		temp := []byte(s)
+		sort.Slice(temp, func(i, j int) bool {
+			return temp[i] < temp[j]
+		})
+		return string(temp)
+	}
+	valid := make(map[string][]string)
+	for i := 0; i < len(strs); i++ {
+		s := helper(strs[i])
+		if _, ok := valid[s]; ok {
+			valid[s] = append(valid[s], strs[i])
+		} else {
+			valid[s] = []string{strs[i]}
+		}
+	}
+	var res [][]string
+	for _, v := range valid {
+		res = append(res, v)
+	}
+	return res
+}
+
+func groupAnagramsOriginal(strs []string) [][]string {
+	valid := make(map[[26]int][]string)
 	for _, str := range strs {
 		key := [26]int{}
 		for i := 0; i < len(str); i++ {
-			key[str[i]-'a'] += 1
+			key[str[i]-'a']++
 		}
-		tempMap[key] = append(tempMap[key], str)
+		valid[key] = append(valid[key], str)
 	}
-	var result [][]string
-	for _, value := range tempMap {
-		result = append(result, value)
+	var res [][]string
+	for _, v := range valid {
+		res = append(res, v)
 	}
-	return result
+	return res
 }
 
 func groupAnagrams1(strs []string) [][]string {
