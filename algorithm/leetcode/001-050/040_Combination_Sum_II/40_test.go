@@ -1,4 +1,4 @@
-package _0_Combination_Sum_II
+package _40_Combination_Sum_II
 
 import (
 	"github.com/stretchr/testify/assert"
