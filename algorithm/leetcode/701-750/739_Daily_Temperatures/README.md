@@ -59,3 +59,41 @@ Output: [1,1,0]
 
 * 1 <=temperatures.length <= 105
 * 30 <=temperatures[i]<= 100
+
+
+# Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+
+# Approach
+<!-- Describe your approach to solving the problem. -->
+
+|||||||
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| i | 0 | 1 | 2 | 3 | 4 |
+| temperatures | 40 | 30 | 50 | 20 | 30 |
+| res | 2 | 1 | 0 | 1 | 0 |
+```
+
+# Complexity
+- Time complexity: O(n)
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+
+- Space complexity: O(n)
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+
+# Code
+```
+func dailyTemperatures(temperatures []int) []int {
+	var queue []int
+	res := make([]int, len(temperatures), len(temperatures))
+	for i := 0; i < len(temperatures); i++ {
+		for len(queue) != 0 && temperatures[queue[len(queue)-1]] < temperatures[i] {
+			idx := queue[len(queue)-1]
+			queue = queue[:len(queue)-1]
+			res[idx] = i - idx
+		}
+		queue = append(queue, i)
+	}
+	return res
+}
+```
