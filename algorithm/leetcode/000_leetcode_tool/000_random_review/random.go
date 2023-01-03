@@ -1,7 +1,50 @@
 package main
 
-func main() {
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
+func main() {
+	tempEasy := make([]int, len(Easy), len(Easy))
+	tempMedium := make([]int, len(Medium), len(Medium))
+	copy(tempEasy, Easy)
+	copy(tempMedium, Medium)
+	Shuffle(tempEasy)
+	Shuffle(tempMedium)
+
+	test := func(tag string, input []int) {
+		fmt.Println("```")
+		var res []string
+		for len(input) > 0 {
+			temp := ""
+			if len(input) > 2 {
+				temp += fmt.Sprintf("%s: %d, %d", tag, input[0], input[1])
+				input = input[2:]
+			} else if len(input) > 0 {
+				temp += fmt.Sprintf("%s: %d", tag, input[0])
+				input = input[1:]
+			}
+			res = append(res, temp)
+		}
+		for i := 0; i < len(res); i++ {
+			fmt.Println(res[i])
+		}
+		fmt.Println("```")
+	}
+	test("Easy", tempEasy)
+	test("Medium", tempMedium)
+}
+
+func Shuffle(slice []int) {
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	for len(slice) > 0 {
+		n := len(slice)
+		randIndex := r.Intn(n)
+		slice[n-1], slice[randIndex] = slice[randIndex], slice[n-1]
+		slice = slice[:n-1]
+	}
 }
 
 var Easy = []int{
