@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"strings"
 	"time"
 )
 
@@ -14,27 +15,50 @@ func main() {
 	Shuffle(tempEasy)
 	Shuffle(tempMedium)
 
-	test := func(tag string, input []int) {
-		fmt.Println("```")
+	test := func(tag string, input []int, number int) []string {
+
 		var res []string
 		for len(input) > 0 {
-			temp := ""
-			if len(input) > 2 {
-				temp += fmt.Sprintf("%s: %d, %d", tag, input[0], input[1])
-				input = input[2:]
-			} else if len(input) > 0 {
-				temp += fmt.Sprintf("%s: %d", tag, input[0])
-				input = input[1:]
+			temp := fmt.Sprintf("%s:", tag)
+			currNumber := min(number, len(input))
+			for i := 0; i < currNumber; i++ {
+				temp += fmt.Sprintf(" %d,", input[i])
 			}
+			input = input[currNumber:]
+			temp = strings.TrimRight(temp, ",")
 			res = append(res, temp)
 		}
-		for i := 0; i < len(res); i++ {
-			fmt.Println(res[i])
-		}
-		fmt.Println("```")
+		return res
 	}
-	test("Easy", tempEasy)
-	test("Medium", tempMedium)
+	easy := test("Easy", tempEasy, 1)
+	medium := test("Medium", tempMedium, 3)
+	index := 0
+	fmt.Println("```")
+	for index < len(easy) && index < len(medium) {
+		if index < len(easy) {
+			fmt.Print(easy[index], "   ")
+		}
+		if index < len(medium) {
+			fmt.Print(medium[index], "   ")
+		}
+		fmt.Println("")
+		index++
+	}
+	fmt.Println("```")
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 func Shuffle(slice []int) {

@@ -1,87 +1,41 @@
 # 计划
 
 ```
-Easy: 202, 118
-Easy: 70, 234
-Easy: 217, 69
-Easy: 344, 35
-Easy: 13, 94
-Easy: 283, 141
-Easy: 66, 27
-Easy: 136, 268
-Easy: 392, 26
-Easy: 112, 326
-Easy: 21, 101
-Easy: 104, 1
-Easy: 171, 145
-Easy: 350, 14
-Easy: 543, 190
-Easy: 125, 206
-Easy: 160, 157
-Easy: 121, 88
-Easy: 412, 9
-Easy: 226, 144
-Easy: 242, 191
-Easy: 169, 108
-Easy: 20, 771
-Easy: 387
-```
-
-```
-Medium: 122, 371
-Medium: 36, 152
-Medium: 287, 230
-Medium: 28, 50
-Medium: 341, 105
-Medium: 29, 40
-Medium: 347, 285
-Medium: 16, 130
-Medium: 45, 6
-Medium: 39, 328
-Medium: 15, 22
-Medium: 454, 11
-Medium: 2, 18
-Medium: 210, 198
-Medium: 155, 251
-Medium: 34, 48
-Medium: 204, 142
-Medium: 215, 994
-Medium: 139, 74
-Medium: 56, 324
-Medium: 189, 17
-Medium: 322, 236
-Medium: 19, 49
-Medium: 78, 438
-Medium: 75, 138
-Medium: 179, 5
-Medium: 739, 162
-Medium: 238, 253
-Medium: 153, 146
-Medium: 279, 53
-Medium: 31, 114
-Medium: 148, 560
-Medium: 134, 763
-Medium: 384, 207
-Medium: 103, 150
-Medium: 62, 3
-Medium: 348, 24
-Medium: 79, 277
-Medium: 64, 395
-Medium: 394, 199
-Medium: 240, 166
-Medium: 12, 8
-Medium: 172, 116
-Medium: 98, 102
-Medium: 54, 208
-Medium: 55, 106
-Medium: 38, 33
-Medium: 380, 340
-Medium: 416, 91
-Medium: 289, 300
-Medium: 237, 200
-Medium: 334, 7
-Medium: 128, 227
-Medium: 43, 73
-Medium: 131
-Medium: 46
+Easy: 1   Medium: 322, 130, 179   
+Easy: 9   Medium: 78, 116, 8   
+Easy: 141   Medium: 348, 277, 103   
+Easy: 350   Medium: 208, 994, 46   
+Easy: 206   Medium: 416, 16, 210   
+Easy: 171   Medium: 122, 64, 384   
+Easy: 234   Medium: 12, 240, 200   
+Easy: 125   Medium: 105, 155, 438   
+Easy: 283   Medium: 39, 238, 152   
+Easy: 104   Medium: 6, 142, 56   
+Easy: 35   Medium: 102, 24, 7   
+Easy: 26   Medium: 251, 74, 395   
+Easy: 217   Medium: 324, 207, 55   
+Easy: 160   Medium: 134, 106, 380   
+Easy: 66   Medium: 49, 75, 199   
+Easy: 169   Medium: 128, 328, 114   
+Easy: 70   Medium: 139, 98, 204   
+Easy: 387   Medium: 146, 341, 17   
+Easy: 101   Medium: 150, 371, 91   
+Easy: 118   Medium: 172, 138, 189   
+Easy: 543   Medium: 62, 50, 454   
+Easy: 344   Medium: 289, 394, 2   
+Easy: 94   Medium: 18, 300, 560   
+Easy: 27   Medium: 29, 43, 347   
+Easy: 145   Medium: 287, 739, 3   
+Easy: 121   Medium: 79, 11, 153   
+Easy: 69   Medium: 237, 19, 131   
+Easy: 392   Medium: 253, 236, 22   
+Easy: 191   Medium: 73, 763, 148   
+Easy: 242   Medium: 38, 198, 31   
+Easy: 226   Medium: 5, 45, 230   
+Easy: 268   Medium: 15, 279, 215   
+Easy: 326   Medium: 28, 36, 340   
+Easy: 412   Medium: 34, 285, 227   
+Easy: 112   Medium: 48, 334, 166   
+Easy: 20   Medium: 33, 40, 54   
+Easy: 771   Medium: 162, 53   
 ```
