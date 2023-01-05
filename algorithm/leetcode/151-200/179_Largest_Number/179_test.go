@@ -29,4 +29,12 @@ func Test_compare(t *testing.T) {
 
 func Test_largestNumber(t *testing.T) {
 	assert.EqualValues(t, "9534330", largestNumber([]int{3, 30, 34, 5, 9}))
+	assert.EqualValues(t, "0", largestNumber([]int{0, 0}))
+	assert.EqualValues(t, "210", largestNumber([]int{10, 2}))
+}
+
+func Test_largestNumber1(t *testing.T) {
+	assert.EqualValues(t, "0", largestNumber1([]int{0, 0}))
+	assert.EqualValues(t, "210", largestNumber1([]int{10, 2}))
+	assert.EqualValues(t, "9534330", largestNumber1([]int{3, 30, 34, 5, 9}))
 }
