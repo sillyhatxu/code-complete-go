@@ -5,6 +5,49 @@ func solve(board [][]byte) {
 		return
 	}
 	lastRow, lastColumn := len(board)-1, len(board[0])-1
+	var helper func(x, y int)
+	helper = func(x, y int) {
+		if x < 0 || y < 0 || x > lastRow || y > lastColumn || board[x][y] != 'O' {
+			return
+		}
+		board[x][y] = '-'
+		helper(x+1, y)
+		helper(x-1, y)
+		helper(x, y+1)
+		helper(x, y-1)
+	}
+	for i := 0; i <= lastRow; i++ {
+		if board[i][0] == 'O' {
+			helper(i, 0)
+		}
+		if board[i][lastColumn] == 'O' {
+			helper(i, lastColumn)
+		}
+	}
+	for i := 0; i <= lastColumn; i++ {
+		if board[0][i] == 'O' {
+			helper(0, i)
+		}
+		if board[lastRow][i] == 'O' {
+			helper(lastRow, i)
+		}
+	}
+	for i := 0; i <= lastRow; i++ {
+		for j := 0; j <= lastColumn; j++ {
+			if board[i][j] == 'O' {
+				board[i][j] = 'X'
+			} else if board[i][j] == '-' {
+				board[i][j] = 'O'
+			}
+		}
+	}
+}
+
+func solve1(board [][]byte) {
+	if len(board) == 0 {
+		return
+	}
+	lastRow, lastColumn := len(board)-1, len(board[0])-1
 	for i := 0; i <= lastColumn; i++ {
 		if board[0][i] == 'O' {
 			helper(&board, 0, i)
