@@ -1,7 +1,6 @@
 # 计划
 
 ```
-Easy: 1   Medium: 322, 130, 179   
 Easy: 9   Medium: 78, 116, 8   
 Easy: 141   Medium: 348, 277, 103   
 Easy: 350   Medium: 208, 994, 46   

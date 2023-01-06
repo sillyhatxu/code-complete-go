@@ -9,6 +9,22 @@ func isPalindrome(x int) bool {
 	if x < 10 {
 		return true
 	}
+	temp, reverse := x, 0
+	for temp != 0 {
+		v := temp % 10
+		reverse = reverse*10 + v
+		temp = temp / 10
+	}
+	return reverse == x
+}
+
+func isPalindromeHistory(x int) bool {
+	if x < 0 {
+		return false
+	}
+	if x < 10 {
+		return true
+	}
 	reverse, origin := 0, x
 	for x != 0 {
 		val := x % 10
