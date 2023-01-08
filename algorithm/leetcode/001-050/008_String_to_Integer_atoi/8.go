@@ -7,6 +7,40 @@ import (
 )
 
 func myAtoi(s string) int {
+	res, sign, start := int64(0), 1, false
+	for _, v := range s {
+		if v == ' ' && !start {
+			continue
+		} else if v == '+' && !start {
+			start = true
+			sign = 1
+			continue
+		} else if v == '-' && !start {
+			start = true
+			sign = -1
+			continue
+		} else if v >= '0' && v <= '9' {
+			start = true
+			res = res*10 + int64(v-'0')
+			if res > math.MaxInt32 {
+				if sign == -1 {
+					res = math.MaxInt32 + 1
+				} else {
+					res = math.MaxInt32
+				}
+				break
+			}
+		} else {
+			break
+		}
+	}
+	if sign == -1 {
+		return int(res) * sign
+	}
+	return int(res)
+}
+
+func myAtoi1(s string) int {
 	temp, sign, start := int64(0), 1, false
 	for _, v := range s {
 		if v == ' ' && !start {
@@ -47,7 +81,7 @@ Runtime: 8 ms, faster than 15.82% of Go online submissions for String to Integer
 Memory Usage: 2.4 MB, less than 66.67% of Go online submissions for String to Integer (atoi).
 Next challenges:
 */
-func myAtoi1(str string) int {
+func myAtoi2(str string) int {
 	resultSrc := ""
 	sign := 1
 	start := true
