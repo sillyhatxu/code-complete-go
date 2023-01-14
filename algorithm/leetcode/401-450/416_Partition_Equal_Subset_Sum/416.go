@@ -13,12 +13,15 @@ func canPartition(nums []int) bool {
 	dp[0] = true
 	for _, num := range nums {
 		for currSum := target; currSum > 0; currSum-- {
+			//x + num = currSum 是否有一个值 x + num = Current Sum
 			temp := currSum - num
-			if temp >= 0 {
+			if temp < 0 {
+				break
+			} else if temp >= 0 {
 				dp[currSum] = dp[currSum] || dp[temp]
 			}
 			if dp[target] {
-				return true
+				break
 			}
 		}
 	}
