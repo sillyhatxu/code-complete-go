@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-func threeSumClosest1(nums []int, target int) int {
+func threeSumClosest(nums []int, target int) int {
 	abs := func(i int) int {
 		if i < 0 {
 			return i * -1
@@ -13,35 +13,31 @@ func threeSumClosest1(nums []int, target int) int {
 		return i
 	}
 	sort.Ints(nums)
-
-	n, SumClosest := len(nums), nums[0]+nums[1]+nums[2] // 初始化为前三元素的值，避免任何个
-
-	for i := 0; i < n-2; i++ {
-
-		if i > 0 && nums[i] == nums[i-1] {
+	res, near := 0, math.MaxInt32
+	for i := 0; i < len(nums)-2; i++ {
+		if i != 0 && nums[i] == nums[i-1] {
 			continue
 		}
-
-		j, k := i+1, n-1
-		for j < k {
-			sum := nums[i] + nums[j] + nums[k]
+		l, r := i+1, len(nums)-1
+		for l < r {
+			sum := nums[i] + nums[l] + nums[r]
+			currentNear := abs(target - sum)
+			if currentNear < near {
+				res, near = sum, currentNear
+			}
 			if sum == target {
-				return target
-			}
-			if abs(sum-target) < abs(SumClosest-target) {
-				SumClosest = sum
-			}
-			if sum > target {
-				k--
-			} else {
-				j++
+				return sum
+			} else if sum < target {
+				l++
+			} else if sum > target {
+				r--
 			}
 		}
 	}
-
-	return SumClosest
+	return res
 }
-func threeSumClosest(nums []int, target int) int {
+
+func threeSumClosest1(nums []int, target int) int {
 	abs := func(i int) int {
 		if i < 0 {
 			return i * -1
