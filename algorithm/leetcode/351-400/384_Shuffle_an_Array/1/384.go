@@ -1,4 +1,4 @@
-package _84_Shuffle_an_Array
+package _384_Shuffle_an_Array_1
 
 import (
 	"math/rand"
