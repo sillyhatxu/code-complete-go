@@ -1,6 +1,14 @@
 package _71_Excel_Sheet_Column_Number
 
 func titleToNumber(columnTitle string) int {
+	res := 0
+	for _, c := range columnTitle {
+		res = res*26 + int(c-'A'+1)
+	}
+	return res
+}
+
+func titleToNumber1(columnTitle string) int {
 	result := 0
 	x := len(columnTitle) - 1
 	for i := 0; i < len(columnTitle); i++ {
