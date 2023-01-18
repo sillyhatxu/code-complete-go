@@ -1,4 +1,4 @@
-package _50_Pow_x__n_
+package _50_Pow_x_n
 
 func myPow(x float64, n int) float64 {
 	if n == 0 || x == 1 {
