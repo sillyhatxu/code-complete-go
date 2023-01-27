@@ -1,6 +1,29 @@
 package _39_Combination_Sum
 
 func combinationSum(candidates []int, target int) [][]int {
+	var dfs func(res *[][]int, candidates []int, currentTarget int, selections []int, index int)
+	dfs = func(res *[][]int, candidates []int, currentTarget int, selections []int, index int) {
+		if currentTarget < 0 {
+			return
+		} else if currentTarget == 0 {
+			temp := make([]int, len(selections))
+			copy(temp, selections)
+			*res = append(*res, temp)
+			return
+		}
+		for i := index; i < len(candidates); i++ {
+			nextTarget := currentTarget - candidates[i]
+			selections = append(selections, candidates[i])
+			dfs(res, candidates, nextTarget, selections, i)
+			selections = selections[:len(selections)-1]
+		}
+	}
+	var res [][]int
+	dfs(&res, candidates, target, []int{}, 0)
+	return res
+}
+
+func combinationSum2(candidates []int, target int) [][]int {
 	var dfs func(result *[][]int, candidates []int, target int, selection *[]int, index int)
 	dfs = func(result *[][]int, candidates []int, target int, selection *[]int, index int) {
 		if target < 0 {
