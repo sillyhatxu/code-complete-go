@@ -9,6 +9,28 @@ func convert(s string, numRows int) string {
 	if numRows == 1 {
 		return s
 	}
+	temp := make([]string, numRows, numRows)
+	row, up := 0, false
+	for i := range s {
+		temp[row] += string(s[i])
+		if row == numRows-1 {
+			up = true
+		} else if row == 0 {
+			up = false
+		}
+		if up {
+			row--
+		} else {
+			row++
+		}
+	}
+	return strings.Join(temp, "")
+}
+
+func convert1(s string, numRows int) string {
+	if numRows == 1 {
+		return s
+	}
 	temp := make([]string, numRows)
 	row, up := 0, true
 	for i := range s {
@@ -27,7 +49,7 @@ func convert(s string, numRows int) string {
 	return strings.Join(temp, "")
 }
 
-func convert2(s string, numRows int) string {
+func convertHistory2(s string, numRows int) string {
 	temp := make([][]byte, numRows, numRows)
 	i := 0
 	for i < len(s) {
@@ -51,7 +73,7 @@ func convert2(s string, numRows int) string {
 	return res.String()
 }
 
-func convert1(s string, numRows int) string {
+func convertHistory(s string, numRows int) string {
 	if numRows == 1 {
 		return s
 	}

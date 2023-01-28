@@ -6,34 +6,48 @@ import (
 )
 
 func Test_maxDepth(t *testing.T) {
-	assert.EqualValues(t, 3, maxDepth(&TreeNode{
-		Val: 1,
+	assert.EqualValues(t, 3, maxDepth(test1))
+	assert.EqualValues(t, 3, maxDepth(test2))
+}
+
+func Test_maxDepth1(t *testing.T) {
+	assert.EqualValues(t, 3, maxDepth1(test1))
+	assert.EqualValues(t, 3, maxDepth1(test2))
+}
+
+func Test_maxDepth2(t *testing.T) {
+	assert.EqualValues(t, 3, maxDepth2(test1))
+	assert.EqualValues(t, 3, maxDepth2(test2))
+}
+
+var test1 = &TreeNode{
+	Val: 1,
+	Left: &TreeNode{
+		Val: 2,
 		Left: &TreeNode{
-			Val: 2,
-			Left: &TreeNode{
-				Val: 4,
-			},
-			Right: &TreeNode{
-				Val: 5,
-			},
+			Val: 4,
 		},
 		Right: &TreeNode{
-			Val: 3,
+			Val: 5,
 		},
-	}))
-	assert.EqualValues(t, 3, maxDepth(&TreeNode{
+	},
+	Right: &TreeNode{
 		Val: 3,
+	},
+}
+
+var test2 = &TreeNode{
+	Val: 3,
+	Left: &TreeNode{
+		Val: 9,
+	},
+	Right: &TreeNode{
+		Val: 20,
 		Left: &TreeNode{
-			Val: 9,
+			Val: 15,
 		},
 		Right: &TreeNode{
-			Val: 20,
-			Left: &TreeNode{
-				Val: 15,
-			},
-			Right: &TreeNode{
-				Val: 7,
-			},
+			Val: 7,
 		},
-	}))
+	},
 }
