@@ -1,12 +1,28 @@
 package main
 
 import (
-	"fmt"
 	"math"
 	"strconv"
 )
 
 func reverse(x int) int {
+	sign := 1
+	if x < 0 {
+		sign = -1
+		x = x * -1
+	}
+	res := 0
+	src := strconv.Itoa(x)
+	for i := len(src) - 1; i >= 0; i-- {
+		res = res*10 + int(src[i]-'0')
+	}
+	if res > math.MaxInt32 || res < -math.MaxInt32-1 {
+		return 0
+	}
+	return res * sign
+}
+
+func reverse1(x int) int {
 	sign := 1
 	if x < 0 {
 		sign = -1
@@ -26,13 +42,4 @@ func reverse(x int) int {
 		return 0
 	}
 	return int(result) * sign
-}
-
-func main() {
-	//fmt.Println(-123 % 10)
-	array := []int{123, -123, 120, 1534236469}
-	result := []int{321, -321, 21, 0}
-	for i, str := range array {
-		fmt.Println(reverse(str) == result[i])
-	}
 }
