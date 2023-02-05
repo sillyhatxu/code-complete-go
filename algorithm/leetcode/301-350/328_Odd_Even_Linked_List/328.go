@@ -1,13 +1,19 @@
 package _28_Odd_Even_Linked_List
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
 func oddEvenList(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	odd, even, evenHead := head, head.Next, head.Next
+	for even != nil && even.Next != nil {
+		odd.Next, even.Next = odd.Next.Next, even.Next.Next
+		odd, even = odd.Next, even.Next
+	}
+	odd.Next = evenHead
+	return head
+}
+
+func oddEvenList1(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
