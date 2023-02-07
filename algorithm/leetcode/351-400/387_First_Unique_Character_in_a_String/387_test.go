@@ -7,4 +7,6 @@ import (
 
 func Test_firstUniqChar(t *testing.T) {
 	assert.EqualValues(t, 0, firstUniqChar("leetcode"))
+	assert.EqualValues(t, 2, firstUniqChar("loveleetcode"))
+	assert.EqualValues(t, -1, firstUniqChar("aabb"))
 }

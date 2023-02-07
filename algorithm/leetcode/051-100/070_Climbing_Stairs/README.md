@@ -65,3 +65,10 @@ Explanation: There are three ways to climb to the top.
 > eg: input 3 = input(2) + input(1) = 2 + 1 = 3
 >     input 4 = input(3) + input(2) = 3 + 2 = 5
 >     input 5 = input(4) + input(3) = 5 + 3 = 8
+
+
+next = previous + 'previous of previous'
+Exempli Gratia:
+input 3 = input(2) + input(1) = 2 + 1 = 3
+input 4 = input(3) + input(2) = 3 + 2 = 5
+input 5 = input(4) + input(3) = 5 + 3 = 8

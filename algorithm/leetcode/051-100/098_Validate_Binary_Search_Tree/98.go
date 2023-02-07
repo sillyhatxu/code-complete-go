@@ -1,8 +1,24 @@
 package _98_Validate_Binary_Search_Tree
 
-import "math"
+import (
+	"math"
+)
 
 func isValidBST(root *TreeNode) bool {
+	var helper func(node *TreeNode, min, max int) bool
+	helper = func(node *TreeNode, min, max int) bool {
+		if node == nil {
+			return true
+		}
+		if node.Val <= min || node.Val >= max {
+			return false
+		}
+		return helper(node.Left, min, node.Val) && helper(node.Right, node.Val, max)
+	}
+	return helper(root.Left, math.MinInt64, root.Val) && helper(root.Right, root.Val, math.MaxInt64)
+}
+
+func isValidBST2(root *TreeNode) bool {
 	previous := math.MinInt64
 	_, result := inorderAndCompare(root, &previous)
 	return result

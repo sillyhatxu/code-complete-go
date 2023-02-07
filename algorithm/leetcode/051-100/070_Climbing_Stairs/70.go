@@ -6,6 +6,19 @@ func climbStairs(n int) int {
 	if n <= 3 {
 		return n
 	}
+	first, second := 2, 3
+	for i := 5; i <= n; i++ {
+		current := first + second
+		first = second
+		second = current
+	}
+	return first + second
+}
+
+func climbStairs1(n int) int {
+	if n <= 3 {
+		return n
+	}
 	return climbStairs(n-1) + climbStairs(n-2)
 }
 
