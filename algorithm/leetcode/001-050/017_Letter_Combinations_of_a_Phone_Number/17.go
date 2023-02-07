@@ -2,6 +2,29 @@ package main
 
 func letterCombinations(digits string) []string {
 	if digits == "" {
+		return nil
+	}
+	dick := []string{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}
+	var res []string
+	src := dick[digits[0]-'0']
+	for j := 0; j < len(src); j++ {
+		res = append(res, string(src[j]))
+	}
+	for i := 1; i < len(digits); i++ {
+		src := dick[digits[i]-'0']
+		size := len(res)
+		for j := 0; j < size; j++ {
+			for k := 0; k < len(src); k++ {
+				res = append(res, res[j]+string(src[k]))
+			}
+		}
+		res = res[size:]
+	}
+	return res
+}
+
+func letterCombinations1(digits string) []string {
+	if digits == "" {
 		return []string{}
 	}
 	dick := []string{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}
