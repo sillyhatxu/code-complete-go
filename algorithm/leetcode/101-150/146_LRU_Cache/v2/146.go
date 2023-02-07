@@ -1,6 +1,4 @@
-package _46_LRU_Cache
-
-import "fmt"
+package v2
 
 type LRUCache struct {
 	first, last *Node
@@ -48,13 +46,11 @@ func (this *LRUCache) Put(key int, value int) {
 	} else {
 		current.previous, current.next = this.last, this.first
 	}
-
 	this.last.next = current
 	this.first.previous = current
 	this.last = current
 	this.cache[key] = current
 	this.refresh(current)
-	//this.last.next, current.previous, this.last = current, this.last, current
 }
 
 func (this *LRUCache) refresh(current *Node) {
@@ -69,42 +65,9 @@ func (this *LRUCache) refresh(current *Node) {
 		this.first.previous, this.last.next = current, current
 		this.last = current
 	}
-
-	//if current.previous == nil && current.next != nil {
-	//	this.first = current.next
-	//	this.last.next = current
-	//	this.last = current
-	//} else if current.previous != nil && current.next != nil {
-	//	current.previous.next = current.next
-	//	this.last.next = current
-	//	this.last = current
-	//}
 	if len(this.cache) > this.capacity {
 		removeKey := this.first.key
 		this.first = this.first.next
 		delete(this.cache, removeKey)
 	}
-	this.forloop(this.first)
 }
-
-func (this *LRUCache) forloop(current *Node) {
-	if current == nil {
-		return
-	}
-	test := ""
-	for {
-		test += fmt.Sprintf("%d -> ", current.key)
-		if current.next == this.first {
-			break
-		}
-		current = current.next
-	}
-	fmt.Println(test)
-}
-
-/**
- * Your LRUCache object will be instantiated and called as such:
- * obj := Constructor(capacity);
- * param_1 := obj.Get(key);
- * obj.Put(key,value);
- */
