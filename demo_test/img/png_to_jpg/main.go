@@ -11,8 +11,8 @@ import (
 )
 
 func main() {
-	originalFilePath := "/Users/shikuanxu/Downloads/WX20220916-183122.png"
-	createFilePath := "/Users/shikuanxu/Downloads/CHINESE_Renunciation_Certificate_2.jpeg"
+	originalFilePath := "/Users/shikuanxu/Documents/父母申请PR/WX20230212-201512.png"
+	createFilePath := "/Users/shikuanxu/Documents/父母申请PR/WX20230212-201512.jpeg"
 	pngImgFile, err := os.Open(originalFilePath)
 
 	if err != nil {

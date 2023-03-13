@@ -7,4 +7,5 @@ import (
 
 func Test_threeSum(t *testing.T) {
 	assert.EqualValues(t, [][]int{{-1, -1, 2}, {-1, 0, 1}}, threeSum([]int{-1, 0, 1, 2, -1, -4}))
+	assert.EqualValues(t, [][]int{{-1, -1, 2}, {-1, 0, 1}}, threeSum([]int{-1, -1, 0, 1, 2}))
 }

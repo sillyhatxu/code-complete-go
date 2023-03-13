@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	file_path := "/Users/shikuanxu/Downloads/WechatIMG353.jpeg"
+	file_path := "/Users/shikuanxu/Documents/父母申请PR/我/徐毕业证学位证公证书拍照/学位公证1.jpg"
 
 	fmt.Println("Hello World")
 	file, err := os.Open(file_path)

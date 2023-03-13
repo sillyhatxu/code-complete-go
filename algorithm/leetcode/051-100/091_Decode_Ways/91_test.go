@@ -13,6 +13,7 @@ func Test_numDecodings1(t *testing.T) {
 	fmt.Println(i, "---", j)
 }
 func Test_numDecodings(t *testing.T) {
+	fmt.Println(numDecodings("110"))
 	//result1 := numDecodings("226")
 	//assert.EqualValues(t, 3, result1)
 	result2 := numDecodings("12101226")
