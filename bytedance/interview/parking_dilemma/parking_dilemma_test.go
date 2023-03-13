@@ -6,6 +6,7 @@ import (
 )
 
 func Test_carParkingRoof(t *testing.T) {
+	//TODO check
 	assert.EqualValues(t, 6, carParkingRoof([]int64{6, 2, 12, 7}, 3))
 	assert.EqualValues(t, 9, carParkingRoof([]int64{2, 10, 8, 17}, 3))
 }

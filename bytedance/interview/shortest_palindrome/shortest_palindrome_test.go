@@ -6,6 +6,7 @@ import (
 )
 
 func Test_minInsertions(t *testing.T) {
+	//TODO check
 	assert.EqualValues(t, 1, minInsertions("abab"))
 	assert.EqualValues(t, 2, minInsertions("abcda"))
 	assert.EqualValues(t, 1, minInsertions("abab"))
