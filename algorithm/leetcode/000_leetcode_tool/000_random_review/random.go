@@ -8,6 +8,13 @@ import (
 )
 
 func main() {
+	fmt.Println(len(Easy))
+	fmt.Println(len(Medium))
+	fmt.Println(len(Hard))
+	fmt.Println(len(Easy) + len(Medium) + len(Hard))
+}
+func main1() {
+
 	tempEasy := make([]int, len(Easy), len(Easy))
 	tempMedium := make([]int, len(Medium), len(Medium))
 	copy(tempEasy, Easy)
@@ -89,4 +96,4 @@ var Medium = []int{
 	371, 380, 384, 394, 395,
 	416, 438, 454, 560, 739, 763, 994,
 }
-var Hard = []int{4, 37}
+var Hard = []int{4, 37, 1312}
