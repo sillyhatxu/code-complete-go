@@ -67,8 +67,6 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
 题目数据保证答案小于等于 2 * 109
 ```
 
-
-
 ### 解题思路
 
 首先，我们可以得出，要想达到右下角，只能从上边或者左边到达
@@ -113,6 +111,14 @@ func uniquePaths(m int, n int) int {
 
 ### 代码
 
+> 其实不用那么麻烦，dp[i][j] = dp[i-1][j] + dp[i][j-1]实际上只需要保存一行,index的指向开始，代表上一行，index前代表前一列
+```
+     1  1  1  1  1  1  1
+     1  2  3  4  5  6  7
+     1  3  6  10 15 21 28
+```
+
+
 ```golang
 func uniquePaths(m int, n int) int {
     row := make([]int, n)
@@ -128,4 +134,11 @@ func uniquePaths(m int, n int) int {
 	}
 	return row[n-1]
 }
+```
+
+
+### index
+
+```
+移动到右下角有多少种情况
 ```

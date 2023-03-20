@@ -55,3 +55,9 @@ Explanation: The sum that is closest to the target is 0. (0 + 0 + 0 = 0).
 Complexity
 Time complexity: O(n^2)
 Space complexity: O(1)
+
+### index
+
+```
+最接近目标值得3个数的和
+```

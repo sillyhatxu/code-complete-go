@@ -52,3 +52,9 @@ Output: 2
 * -107 <= k <= 107
 
 ![image description](WechatIMG448.jpeg)
+
+### index
+
+```
+连续子数组的和是k
+```

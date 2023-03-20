@@ -15,11 +15,25 @@ func climbStairs(n int) int {
 	return first + second
 }
 
+func climbStairs3(n int) int {
+	if n <= 3 {
+		return n
+	}
+	dp := make(map[int]int, n+1)
+	dp[1] = 1
+	dp[2] = 2
+	dp[3] = 3
+	for i := 4; i <= n; i++ {
+		dp[i] = dp[i-2] + dp[i-1]
+	}
+	return dp[n]
+}
+
 func climbStairs1(n int) int {
 	if n <= 3 {
 		return n
 	}
-	return climbStairs(n-1) + climbStairs(n-2)
+	return climbStairs1(n-1) + climbStairs1(n-2)
 }
 
 func climbStairsOptimize(n int) int {

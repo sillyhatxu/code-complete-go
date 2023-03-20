@@ -66,3 +66,10 @@ trie.search("app");     // 返回 True
 1 <= word.length, prefix.length <= 2000
 word 和 prefix 仅由小写英文字母组成
 insert、search 和 startsWith 调用次数 总计 不超过 3 * 104 次
+
+
+### index
+
+```
+给数组，求组成的最大数
+```

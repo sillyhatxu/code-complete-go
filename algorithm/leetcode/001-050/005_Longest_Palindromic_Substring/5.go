@@ -1,64 +1,5 @@
 package main
 
-func longestPalindrome(s string) string {
-	if len(s) == 0 || len(s) == 1 || (len(s) == 2 && s[0] == s[1]) {
-		//s = ""; s = "a"; s = "aa"
-		return s
-	}
-	isPalindrome := func(i string) bool {
-		l, r := 0, len(i)-1
-		for l < r {
-			if i[l] != i[r] {
-				return false
-			}
-			l++
-			r--
-		}
-		return true
-	}
-	pre, res := s[:1], s[:1]
-	for right := 1; right < len(s); right++ {
-		left := right - len(pre) - 1
-		if left < 0 {
-			left = 0
-		}
-		for j := left; j <= right; j++ {
-			if isPalindrome(s[j : right+1]) {
-				pre = s[j : right+1]
-				if len(pre) > len(res) {
-					res = pre
-				}
-				break
-			}
-		}
-	}
-	return res
-}
-
-//最简单的理解方式，不过很现实时间复杂度太高了，LeetCode已经超时
-func longestPalindromeLow(s string) string {
-	if len(s) == 1 || (len(s) == 2 && s[0] == s[1]) {
-		return s
-	}
-	var sonSrc []string
-	for i := 0; i < len(s); i++ {
-		for j := len(s); j > i; j-- {
-			sonSrc = append(sonSrc, s[i:j])
-		}
-	}
-	maxSrc := ""
-	for _, v := range sonSrc {
-		negate := ""
-		for i := len(v) - 1; i >= 0; i-- {
-			negate += string(v[i])
-		}
-		if v == negate && len(v) > len(maxSrc) {
-			maxSrc = v
-		}
-	}
-	return maxSrc
-}
-
 //Dynamic Programming
 //使用动态规划来解决
 //执行结果
@@ -107,7 +48,8 @@ func longestPalindromeBest(s string) string {
 			begin = 0
 		}
 		for j := begin; j <= i; j++ {
-			if isPalindrome(s[j : i+1]) {
+			curr := s[j : i+1]
+			if isPalindrome(curr) {
 				pre = s[j : i+1]
 				if len(pre) > len(max) {
 					max = pre

@@ -67,6 +67,10 @@ Explanation: There are three ways to climb to the top.
 >     input 5 = input(4) + input(3) = 5 + 3 = 8
 
 
+### 解题思路
+
+f(n) = f(n-2) + f(n-1) 
+
 next = previous + 'previous of previous'
 Exempli Gratia:
 input 3 = input(2) + input(1) = 2 + 1 = 3

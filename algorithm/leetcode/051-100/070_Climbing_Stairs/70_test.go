@@ -21,6 +21,22 @@ func Test_climbStairs(t *testing.T) {
 	assert.EqualValues(t, 14930352, climbStairs(35))
 }
 
+func Test_climbStairs3(t *testing.T) {
+	assert.EqualValues(t, 1, climbStairs3(1))
+	assert.EqualValues(t, 2, climbStairs3(2))
+	assert.EqualValues(t, 3, climbStairs3(3))
+	assert.EqualValues(t, 5, climbStairs3(4))
+	assert.EqualValues(t, 8, climbStairs3(5))
+	assert.EqualValues(t, 13, climbStairs3(6))
+	assert.EqualValues(t, 21, climbStairs3(7))
+	assert.EqualValues(t, 34, climbStairs3(8))
+	assert.EqualValues(t, 55, climbStairs3(9))
+	assert.EqualValues(t, 89, climbStairs3(10))
+	assert.EqualValues(t, 144, climbStairs3(11))
+	assert.EqualValues(t, 267914296, climbStairs3(41))
+	assert.EqualValues(t, 14930352, climbStairs3(35))
+}
+
 func Test_climbStairs1(t *testing.T) {
 	assert.EqualValues(t, 1, climbStairs1(1))
 	assert.EqualValues(t, 2, climbStairs1(2))
