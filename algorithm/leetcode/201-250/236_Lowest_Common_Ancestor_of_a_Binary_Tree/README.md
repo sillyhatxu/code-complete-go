@@ -121,3 +121,9 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	return right
 }
 ```
+
+### index
+
+```
+找到最近公共祖先，公共root
+```
