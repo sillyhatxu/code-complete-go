@@ -78,3 +78,19 @@ s 和 wordDict[i] 仅有小写英文字母组成
 wordDict 中的所有字符串 互不相同
 ```
 
+### 解题思路
+
+```
+dp := make([]bool, len(s)+1)
+dp[0] = true
+dp[i]表示s的前i个字符能否被拆分成wordDict中的单词。
+如果s[j:i]是字典中的单词并且dp[j]是true，所以dp[i] = true
+最后返回dp[len(s)]
+```
+
+
+### index
+
+```
+数组单词，拼出传入string；拼
+```

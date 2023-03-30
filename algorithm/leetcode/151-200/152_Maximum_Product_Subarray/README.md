@@ -65,3 +65,16 @@ nums 的任何前缀或后缀的乘积都 保证是一个 32-位 整数
 1. x为正数，x * nums[i]是最大值
 2. x为负数，x * nums[i]是最大值（-2 * -8 = 16负数的话，越小的值，乘积结果越大）
 3. 当前nums[i]是最大值
+
+比较3个值
+currentMax = max(max*nums[i], min*nums[i], nums[i])
+currentMin = min(max*nums[i], min*nums[i], nums[i])
+max = currentMax
+min = currentMin
+res = max(res,currentMax)
+
+### index
+
+```
+乘积；最大值；最大乘积
+```
