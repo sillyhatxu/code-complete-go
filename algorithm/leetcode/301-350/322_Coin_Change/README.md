@@ -146,3 +146,16 @@ func coinChange(coins []int, amount int) int {
 	return dp[amount]
 }
 ```
+
+### 解题思路
+
+```
+dp[i]表示凑成金额i所需的最少硬币个数
+遍历硬币数组coins，对于每个硬币coin，从金额coin开始递推，更新dp数组。如果凑成金额i需要硬币coin，则有dp[i] = min(dp[i], dp[i-coin]+1)。
+```
+
+### index
+
+```
+凑硬币，总数
+```
