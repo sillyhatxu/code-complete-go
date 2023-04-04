@@ -49,3 +49,17 @@ Explanation: The array cannot be partitioned into equal sum subsets.
 
 * 1 <= nums.length <= 200
 * 1 <= nums[i] <= 100
+
+
+### 解题思路
+
+```
+1. sum必须是偶数才能拆分
+2. dp[i] 表示能否从数组中选取若干个元素，其元素和等于i
+```
+
+### index
+
+```
+数组；和；拆分
+```
