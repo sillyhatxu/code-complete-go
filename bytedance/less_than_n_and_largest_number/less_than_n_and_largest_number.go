@@ -7,6 +7,25 @@ import (
 	"strings"
 )
 
+func lessThanNAndLargestNumber3(n int, A []int) int {
+	a := strconv.Itoa(n)
+	b := []byte(a)
+	for i := 0; i < len(b); i++ {
+		for j := len(A) - 1; j >= 0; j-- {
+			if A[j] < int(b[i]-'0') {
+				b[i] = byte(A[j] + '0')
+				for k := i + 1; k < len(b); k++ {
+					b[k] = '9'
+				}
+				goto end
+			}
+		}
+	}
+end:
+	result, _ := strconv.Atoi(string(b))
+	return result
+}
+
 func lessThanNAndLargestNumber1(n int, array []int) int {
 	max := func(a, b int) int {
 		if a > b {
