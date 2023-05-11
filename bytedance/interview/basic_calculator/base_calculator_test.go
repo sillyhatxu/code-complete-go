@@ -6,18 +6,38 @@ import (
 )
 
 func TestCalculate(t *testing.T) {
-	assert.EqualValues(t, 2147483647, calculate("2147483647"))
-	assert.EqualValues(t, 7, calculate("1+2*3"))
-	assert.EqualValues(t, 3, calculate(" 2-1 + 2 "))
-	assert.EqualValues(t, 23, calculate("(1+(4+5+2)-3)+(6+8)"))
-	assert.EqualValues(t, 6, calculate("1+2+3"))
-}
-
-func TestCalculate1(t *testing.T) {
-	//assert.EqualValues(t, 2147483647, calculate1("2147483647"))
-	assert.EqualValues(t, 7, calculate1("1+2*3"))
-	assert.EqualValues(t, 33, calculate1("11+22"))
-	assert.EqualValues(t, 3, calculate1(" 2-1 + 2 "))
-	assert.EqualValues(t, 23, calculate1("(1+(4+5+2)-3)+(6+8)"))
-	assert.EqualValues(t, 6, calculate1("1+2+3"))
+	testCases := []struct {
+		input    string
+		expected int
+	}{
+		{"1+2*3", 7},
+		{"11+22", 33},
+		{" 2-1 + 2 ", 3},
+		{"(1+(4+5+2)-3)+(6+8)", 23},
+		{"1+2+3", 6},
+		{"2147483647", 2147483647},
+		{"1+2*3", 7},
+		{"(1+(4+5+2)-3)+(6+8)", 23},
+		{"2*(5+5*2)/3+(6/2+8)", 21},
+		{"3+2*2", 7},
+		{"3/2", 1},
+		{"3+5/2", 5},
+		{"(2+6*3+5-(3*14/7+2)*5)+3", -12},
+		{"1*2-3/4+5*6-7*8+9/10", -24},
+		{"10+20*3", 70},
+		{"1-2*3+4/2", -3},
+		{"(2+3)*4", 20},
+		{"(5+5*2)/2", 7},
+		{"(3+4*5)/2", 11},
+		{"2*(3+4)", 14},
+		{"(3+5/2)*2", 10},
+		{"((3+5)/2)*2", 8},
+		{"((2+3)*(5-2))/2", 7},
+		{"(6+8)/2*3-4", 17},
+		{"(2*3+4)/2", 5},
+		{"2*3+4/2*5-6", 10},
+	}
+	for _, tc := range testCases {
+		assert.EqualValues(t, tc.expected, calculate(tc.input), "Failed for input: %s", tc.input)
+	}
 }

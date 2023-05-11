@@ -2,68 +2,10 @@ package basic_calculator
 
 import (
 	"strconv"
-	"strings"
 	"unicode"
 )
 
 func calculate(s string) int {
-	var stack []int
-	num := 0
-	operation := byte('+')
-	for i := 0; i < len(s); i++ {
-		ch := s[i]
-		if unicode.IsDigit(rune(ch)) {
-			num = num*10 + int(ch-'0')
-		}
-		if (!unicode.IsDigit(rune(ch)) && !unicode.IsSpace(rune(ch))) || i == len(s)-1 {
-			switch operation {
-			case '+':
-				stack = append(stack, num)
-			case '-':
-				stack = append(stack, -num)
-			case '*':
-				stack[len(stack)-1] *= num
-			case '/':
-				stack[len(stack)-1] /= num
-			}
-			operation = ch
-			num = 0
-		}
-
-		if ch == '(' {
-			// Find the position of the closing parenthesis
-			pos := findClosingParenthesis(s, i)
-			num = calculate(s[i+1 : pos])
-			i = pos
-		}
-	}
-
-	result := 0
-	for _, val := range stack {
-		result += val
-	}
-
-	return result
-}
-
-func findClosingParenthesis(s string, start int) int {
-	counter := 1
-	for i := start + 1; i < len(s); i++ {
-		if s[i] == '(' {
-			counter++
-		} else if s[i] == ')' {
-			counter--
-		}
-
-		if counter == 0 {
-			return i
-		}
-	}
-	return -1
-}
-
-func calculate1(s string) int {
-	s = strings.ReplaceAll(s, " ", "")
 	// 定义一个运算符栈和一个操作数栈
 	var signQueue []rune
 	var numberQueue []int
@@ -87,23 +29,27 @@ func calculate1(s string) int {
 	}
 
 	// 遍历字符串中的每个字符
-	for _, curr := range s {
+	for i := 0; i < len(s); i++ {
+		if unicode.IsSpace(rune(s[i])) {
+			continue
+		}
+		curr := s[i]
 		switch curr {
 		case '+', '-':
 			// 如果当前字符是 + 或 -，则计算栈中的操作数和运算符
 			for len(signQueue) > 0 && (signQueue[len(signQueue)-1] == '+' || signQueue[len(signQueue)-1] == '-' || signQueue[len(signQueue)-1] == '*' || signQueue[len(signQueue)-1] == '/') {
 				calc()
 			}
-			signQueue = append(signQueue, curr)
+			signQueue = append(signQueue, rune(curr))
 		case '*', '/':
 			// 如果当前字符是 * 或 /，则计算栈中的操作数和运算符
 			for len(signQueue) > 0 && (signQueue[len(signQueue)-1] == '*' || signQueue[len(signQueue)-1] == '/') {
 				calc()
 			}
-			signQueue = append(signQueue, curr)
+			signQueue = append(signQueue, rune(curr))
 		case '(':
 			// 如果当前字符是左括号，将其压入运算符栈
-			signQueue = append(signQueue, curr)
+			signQueue = append(signQueue, rune(curr))
 		case ')':
 			// 如果当前字符是右括号，则计算栈中的操作数和运算符，直到遇到左括号
 			for signQueue[len(signQueue)-1] != '(' {
@@ -111,12 +57,21 @@ func calculate1(s string) int {
 			}
 			signQueue = signQueue[:len(signQueue)-1] // 弹出左括号
 		default:
-			// 如果当前字符是数字，则将其解析为整数，并将其压入操作数栈
-			val, _ := strconv.Atoi(string(curr))
+			currentNumberSrc := string(curr)
+			// 如果当前字符是数字，判断这个数字的长度（234+456）
+			for j := i + 1; j < len(s); j++ {
+				ch := s[j]
+				if unicode.IsDigit(rune(ch)) {
+					currentNumberSrc = currentNumberSrc + string(ch)
+					i++
+				} else {
+					break
+				}
+			}
+			val, _ := strconv.Atoi(currentNumberSrc)
 			numberQueue = append(numberQueue, val)
 		}
 	}
-
 	// 计算栈中的操作数和运算符，直到运算符栈为空
 	for len(signQueue) > 0 {
 		calc()
