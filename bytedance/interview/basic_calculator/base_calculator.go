@@ -1,15 +1,72 @@
-package main
+package basic_calculator
 
 import (
-	"fmt"
 	"strconv"
+	"strings"
+	"unicode"
 )
 
-func Calculator(input string) int {
-	// 定义一个运算符栈和一个操作数栈
-	signQueue := []rune{}
-	numberQueue := []int{}
+func calculate(s string) int {
+	var stack []int
+	num := 0
+	operation := byte('+')
+	for i := 0; i < len(s); i++ {
+		ch := s[i]
+		if unicode.IsDigit(rune(ch)) {
+			num = num*10 + int(ch-'0')
+		}
+		if (!unicode.IsDigit(rune(ch)) && !unicode.IsSpace(rune(ch))) || i == len(s)-1 {
+			switch operation {
+			case '+':
+				stack = append(stack, num)
+			case '-':
+				stack = append(stack, -num)
+			case '*':
+				stack[len(stack)-1] *= num
+			case '/':
+				stack[len(stack)-1] /= num
+			}
+			operation = ch
+			num = 0
+		}
 
+		if ch == '(' {
+			// Find the position of the closing parenthesis
+			pos := findClosingParenthesis(s, i)
+			num = calculate(s[i+1 : pos])
+			i = pos
+		}
+	}
+
+	result := 0
+	for _, val := range stack {
+		result += val
+	}
+
+	return result
+}
+
+func findClosingParenthesis(s string, start int) int {
+	counter := 1
+	for i := start + 1; i < len(s); i++ {
+		if s[i] == '(' {
+			counter++
+		} else if s[i] == ')' {
+			counter--
+		}
+
+		if counter == 0 {
+			return i
+		}
+	}
+	return -1
+}
+
+func calculate1(s string) int {
+	s = strings.ReplaceAll(s, " ", "")
+	// 定义一个运算符栈和一个操作数栈
+	var signQueue []rune
+	var numberQueue []int
 	// 定义一个函数用于计算两个数的结果
 	calc := func() {
 		num1 := numberQueue[len(numberQueue)-1]
@@ -30,7 +87,7 @@ func Calculator(input string) int {
 	}
 
 	// 遍历字符串中的每个字符
-	for _, curr := range input {
+	for _, curr := range s {
 		switch curr {
 		case '+', '-':
 			// 如果当前字符是 + 或 -，则计算栈中的操作数和运算符
@@ -64,20 +121,6 @@ func Calculator(input string) int {
 	for len(signQueue) > 0 {
 		calc()
 	}
-
 	// 最终操作数栈中剩余的元素即为计算结果
 	return numberQueue[0]
-}
-
-func main() {
-	var res int
-
-	test1 := "1+2+3"
-	res = Calculator(test1)
-	fmt.Printf("test1: %s, res: %v", test1, res)
-	fmt.Println()
-	test2 := "1+2*3"
-	res = Calculator(test2)
-	fmt.Printf("test1: %s, res: %v", test2, res)
-
 }
